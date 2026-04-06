@@ -11,7 +11,7 @@ const { hero } = restaurantData;
 const heroSizes = imageManifest.images.hero.sizes;
 const avifSrcset = heroSizes.map((s) => `${s.avif} ${s.width}w`).join(', ');
 const webpSrcset = heroSizes.map((s) => `${s.webp} ${s.width}w`).join(', ');
-const defaultSrc = imageManifest.images.hero.default.avif;
+const defaultSrc = imageManifest.images.hero.default.webp;
 
 const containerVariants: Variants = {
   hidden: {},
@@ -27,7 +27,7 @@ export default function Hero() {
   const { t } = useTranslation('common');
 
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center justify-center border-b border-accent">
+    <section className="relative min-h-screen overflow-hidden flex items-center justify-center border-b border-accent/35">
       {/* Background image with slow zoom */}
       <div className="absolute inset-0 animate-hero-zoom">
         <picture>
@@ -42,8 +42,8 @@ export default function Hero() {
         </picture>
       </div>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      {/* Dark overlay — gradient for cinematic depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-black/10" />
 
       {/* Content */}
       <div className="relative z-10 px-6 text-center max-w-3xl mx-auto">
@@ -62,8 +62,8 @@ export default function Hero() {
 
           <motion.h1
             variants={itemVariants}
-            className="font-serif font-normal text-text-primary leading-tight
-                       text-[clamp(2.5rem,8vw,5.5rem)]"
+            className="font-serif font-normal text-text-primary leading-tight tracking-tight
+                       text-[clamp(3rem,8vw,6rem)]"
           >
             {hero.headline}
           </motion.h1>
@@ -101,8 +101,8 @@ export default function Hero() {
       <a
         href="#about"
         aria-label={t('hero.scrollDown')}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40
-                   hover:text-white/70 transition-colors animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/55
+                   hover:text-white/75 transition-colors animate-bounce"
       >
         <ChevronDown size={24} />
       </a>

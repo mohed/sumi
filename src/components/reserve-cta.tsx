@@ -6,7 +6,7 @@ const { reservationCta, visit, location, contact } = restaurantData;
 
 export default function ReserveCta() {
   return (
-    <section className="bg-bg-raised border-b border-accent">
+    <section className="bg-bg-raised border-b border-accent/35">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-[1fr_auto_1fr] items-center">
 
@@ -18,7 +18,7 @@ export default function ReserveCta() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="py-16 pr-12"
           >
-            <h2 className="font-serif text-3xl lg:text-5xl text-text-primary font-normal leading-tight mb-6 w-full">
+            <h2 className="font-serif text-3xl lg:text-5xl text-text-primary font-normal tracking-tight leading-tight mb-6 w-full">
               {reservationCta.title}
             </h2>
             <p className="text-text-secondary text-base lg:text-lg leading-relaxed mb-8 max-w-md">

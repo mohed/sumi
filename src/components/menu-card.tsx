@@ -39,7 +39,7 @@ export default function MenuCard({
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
       }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="bg-bg-raised border border-white/8 overflow-hidden group"
+      className="bg-bg-raised border border-white/8 hover:border-white/18 overflow-hidden group transition-colors duration-200"
     >
       {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden">
@@ -47,11 +47,6 @@ export default function MenuCard({
           <source
             type="image/avif"
             srcSet={avifSrcset}
-            sizes="(max-width: 768px) 100vw, 33vw"
-          />
-          <source
-            type="image/webp"
-            srcSet={webpSrcset}
             sizes="(max-width: 768px) 100vw, 33vw"
           />
           <source

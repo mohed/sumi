@@ -1,5 +1,7 @@
 
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import MenuCard from './menu-card';
 import restaurantData from '@data/restaurant.json';
 import imageManifest from '@data/image-manifest.json';
@@ -15,9 +17,10 @@ const cardImageMap = {
 type FeaturedItemId = keyof typeof cardImageMap;
 
 export default function Menu() {
+  const { t } = useTranslation('common');
+
   return (
-    <section id="menu" className="bg-bg-deepest border-b border-accent">
-      {/* Content */}
+    <section id="menu" className="bg-bg-deepest border-b border-accent/35">
       <div className="max-w-6xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -26,7 +29,7 @@ export default function Menu() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-14"
         >
-          <h2 className="font-serif text-3xl lg:text-5xl text-text-primary font-normal mb-3">
+          <h2 className="font-serif text-3xl lg:text-5xl text-text-primary font-normal tracking-tight mb-3">
             {menu.title}
           </h2>
           <p className="text-text-secondary text-base">{menu.subtitle}</p>
@@ -41,7 +44,7 @@ export default function Menu() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.1 } },
           }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
         >
           {menu.featuredItems.map((item) => {
             const imageData = cardImageMap[item.id as FeaturedItemId];
@@ -59,6 +62,22 @@ export default function Menu() {
           })}
         </motion.div>
 
+        {/* View Full Menu CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="text-center"
+        >
+          <Link
+            to="/menu"
+            className="inline-block px-8 py-3.5 border border-white/30 text-text-primary font-sans text-sm tracking-wider
+                       hover:border-white/60 transition-colors duration-200 rounded-sm"
+          >
+            {t('menu.viewFullMenu')}
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

@@ -51,7 +51,7 @@ export default function Footer() {
               <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
             </svg>
           </a>
-          <p className="text-text-muted text-xs font-sans">
+          <p className="text-text-muted text-xs font-sans border-t border-white/5 pt-2 mt-1">
             © {new Date().getFullYear()} Sumi. All rights reserved.
           </p>
         </div>

@@ -1,42 +1,41 @@
 import { motion } from 'framer-motion';
-import { Coffee, Moon, UtensilsCrossed } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import restaurantData from '@data/restaurant.json';
 
 const { openingHours } = restaurantData;
-
-const RESERVATION_ONLY = ['Friday', 'Saturday'];
+const { reservationOnlyDays, consolidatedWeekdays } = openingHours.displayConfig;
 
 interface DayEntry {
   days: string;
   hours: string;
 }
 
-const MON_THU: DayEntry = {
-  days: 'Monday – Thursday',
-  hours: '11:30–13:30, 16:30–21:00',
-};
+function getSlotLabel(timeRange: string, isFirst: boolean): string {
+  if (!isFirst) return 'Dinner';
+  const startHour = parseInt(timeRange.split(':')[0], 10);
+  return startHour < 13 ? 'Lunch' : 'Afternoon';
+}
+
+function formatRange(raw: string): string {
+  return raw.replace('–', ' – ');
+}
 
 export default function OpeningHours() {
   const cards: DayEntry[] = [
-    MON_THU,
+    consolidatedWeekdays,
     ...openingHours.display.filter(
-      ({ days }) =>
-        days !== 'Monday' &&
-        days !== 'Tuesday' &&
-        days !== 'Wednesday' &&
-        days !== 'Thursday'
+      ({ days }) => !['Monday', 'Tuesday', 'Wednesday', 'Thursday'].includes(days)
     ),
   ];
 
   return (
-    <section className="bg-bg-raised border-b border-accent">
+    <section className="bg-bg-raised border-b border-accent/35">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex" style={{ borderCollapse: 'collapse' }}>
+        <div className="flex">
           {cards.map(({ days, hours }, index) => {
-            const isReservationOnly = RESERVATION_ONLY.includes(days);
-
-            const [lunchPart, dinnerPart] = hours.split(', ');
-            const dinnerLabel = isReservationOnly ? 'Reservation only' : dinnerPart;
+            const isReservationOnly = reservationOnlyDays.includes(days);
+            const [firstSlot, secondSlot] = hours.split(', ');
+            const firstLabel = getSlotLabel(firstSlot, true);
 
             return (
               <motion.div
@@ -45,56 +44,47 @@ export default function OpeningHours() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.06 }}
-                className="flex-1 px-4 py-6 last:border-r-0 border-r border-accent"
+                className="flex-1 px-5 py-8 last:border-r-0 border-r border-accent/35"
               >
                 {/* Day name */}
-                <div className="mb-4">
-                  <span className="text-text-secondary text-xs font-sans uppercase tracking-widest block">
-                    {days}
-                  </span>
-                </div>
+                <p className="text-sm font-sans font-medium text-text-primary tracking-[0.06em] mb-5">
+                  {days}
+                </p>
 
-                {/* Lunch slot */}
-                <div className="flex items-start gap-2 mb-2">
-                  <Coffee size={12} className="text-accent shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-text-primary text-sm font-sans leading-tight">
-                      {lunchPart}
-                    </p>
-                    <p className="text-text-muted text-[10px] font-sans mt-0.5 uppercase tracking-wider">
-                      Lunch
+                {/* First slot — Lunch or Afternoon */}
+                <div className="mb-5">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Sun size={10} className="text-accent/70 shrink-0" />
+                    <p className="text-[10px] font-sans uppercase tracking-wider text-text-muted">
+                      {firstLabel}
                     </p>
                   </div>
+                  <p className="text-sm font-sans text-text-primary tabular-nums pl-[18px]">
+                    {formatRange(firstSlot)}
+                  </p>
                 </div>
 
-                {/* Break */}
-                <div className="flex items-center gap-2 mb-2">
-                  <UtensilsCrossed size={12} className="text-text-muted shrink-0" />
-                  <p className="text-text-muted text-xs font-sans">13:30 – 16:30</p>
-                </div>
-
-                {/* Dinner slot */}
-                <div className="flex items-start gap-2">
-                  <Moon
-                    size={12}
-                    className={
-                      isReservationOnly
-                        ? 'text-accent shrink-0 mt-0.5'
-                        : 'text-text-muted shrink-0 mt-0.5'
-                    }
-                  />
-                  <div>
-                    <p
-                      className={`text-sm font-sans leading-tight ${
-                        isReservationOnly ? 'text-accent italic' : 'text-text-primary'
-                      }`}
-                    >
-                      {dinnerLabel}
-                    </p>
-                    <p className="text-text-muted text-[10px] font-sans mt-0.5 uppercase tracking-wider">
-                      Dinner
-                    </p>
+                {/* Second slot — Dinner */}
+                <div>
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Moon
+                      size={10}
+                      className={isReservationOnly ? 'text-accent shrink-0' : 'text-text-muted shrink-0'}
+                    />
+                    {isReservationOnly ? (
+                      <p className="text-[10px] font-sans uppercase tracking-wider">
+                        <span className="text-text-muted">Dinner</span>
+                        <span className="text-accent"> · Reservation</span>
+                      </p>
+                    ) : (
+                      <p className="text-[10px] font-sans uppercase tracking-wider text-text-muted">
+                        Dinner
+                      </p>
+                    )}
                   </div>
+                  <p className="text-sm font-sans text-text-primary tabular-nums pl-[18px]">
+                    {formatRange(secondSlot)}
+                  </p>
                 </div>
               </motion.div>
             );

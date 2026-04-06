@@ -47,7 +47,7 @@
     }
   },
   "restaurant": {
-    "name": "Omakase Gävle",
+    "name": "Sumi",
     "tagline": "Handcrafted sushi in a calm, modern setting.",
     "description": "A small sushi restaurant in central Gävle focused on clean flavours, carefully selected ingredients, and a quiet evening experience.",
     "concept": "Premium yet approachable neighbourhood restaurant with Japanese-inspired minimalism.",
@@ -71,9 +71,9 @@
   },
   "contact": {
     "phone": "026-280 14 20",
-    "email": "booking@omakasegavle.se",
-    "website": "https://omakasegavle.se",
-    "instagram": "https://instagram.com/omakasegavle"
+    "email": "booking@sumi.se",
+    "website": "https://sumi.se",
+    "instagram": "https://instagram.com/sumirestaurant"
   },
   "location": {
     "street": "Norra Kungsgatan 7A",
@@ -86,10 +86,17 @@
       "lat": 60.6745,
       "lng": 17.1448
     },
-    "mapLabel": "Find Omakase Gävle"
+    "mapLabel": "Find Sumi"
   },
   "openingHours": {
     "timezone": "Europe/Stockholm",
+    "displayConfig": {
+      "reservationOnlyDays": ["Friday", "Saturday"],
+      "consolidatedWeekdays": {
+        "days": "Mon – Thu",
+        "hours": "11:30–13:30, 16:30–21:00"
+      }
+    },
     "display": [
       {
         "days": "Monday",
@@ -193,7 +200,7 @@
     "title": "Our craft",
     "intro": "We believe in a quieter way of eating sushi — with care in every detail, from the temperature of the rice to the cut of the fish.",
     "body": [
-      "At Omakase Gävle, we work with a small, focused menu where every dish has room to breathe. The menu is built for both a quick lunch and a longer dinner in good company.",
+      "At Sumi, we work with a small, focused menu where every dish has room to breathe. The menu is built for both a quick lunch and a longer dinner in good company.",
       "The atmosphere is warm and stripped back, inspired by modern Japanese minimalism. The pace is a little slower, the flavours cleaner, the experience more considered.",
       "We serve classic nigiri, signature rolls, and an omakase set for those who want to let the kitchen choose the evening's highlights."
     ]
@@ -396,7 +403,7 @@
     "transitNote": "Close to the city centre and within easy walking distance of public transport."
   },
   "seo": {
-    "title": "Omakase Gävle | Sushi in central Gävle",
+    "title": "Sumi | Sushi in central Gävle",
     "description": "A modern sushi restaurant in central Gävle with signature rolls, nigiri, and omakase sets in a calm, understated setting.",
     "keywords": [
       "sushi gavle",
