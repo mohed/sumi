@@ -636,6 +636,61 @@ A potential offer framing could be:
 
 ---
 
+## Deployment
+
+**Project:** `samurajstudio` | **Region:** `europe-north1` | **Service:** `sumi`
+
+### Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Runs at `http://localhost:3010` with hot module replacement.
+
+### Production Build
+
+```bash
+npm run build        # outputs to dist/
+npm run preview      # preview locally
+```
+
+### Docker (local)
+
+```bash
+docker build -t sumi .
+docker run -p 8080:8080 sumi
+# → http://localhost:8080
+```
+
+### Deploy to Cloud Run
+
+**Option 1: Cloud Build (recommended)**
+
+```bash
+gcloud builds submit --config cloudbuild.yaml \
+  --substitutions=COMMIT_SHA=$(git rev-parse --short HEAD) \
+  --project samurajstudio .
+```
+
+**Option 2: Manual build + deploy**
+
+```bash
+# Build and push
+gcloud builds submit --tag gcr.io/samurajstudio/sumi:$(git rev-parse --short HEAD) .
+
+# Deploy to Cloud Run
+gcloud run deploy sumi \
+  --image gcr.io/samurajstudio/sumi:$(git rev-parse --short HEAD) \
+  --region europe-north1 \
+  --platform managed \
+  --allow-unauthenticated \
+  --quiet
+```
+
+---
+
 ## Next Step
 
 Build the first version as a polished concept prototype with:

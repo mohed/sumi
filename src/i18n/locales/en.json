@@ -4,7 +4,8 @@
     "closeMenu": "Close menu",
     "ourCraft": "Our craft",
     "viewMenu": "View menu",
-    "reserve": "Reserve"
+    "reserve": "Reserve",
+    "switchLanguage": "Switch language"
   },
   "hero": {
     "scrollDown": "Scroll down"
@@ -25,11 +26,78 @@
     "address": "Address",
     "openingHours": "Opening hours",
     "closed": "Closed",
-    "findUs": "Find Sumi"
+    "findUs": "Find Sumi",
+    "lunch": "Lunch",
+    "afternoon": "Afternoon",
+    "dinner": "Dinner",
+    "reservation": "Reservation",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "monThu": "Mon – Thu"
   },
   "footer": {
     "instagram": "Instagram",
     "allRightsReserved": "All rights reserved."
+  },
+  "menuPage": {
+    "houseSignatures": "House signatures",
+    "letUsPickForOnce": "Let us pick for once",
+    "bannerQuote": "Handcrafted with care, served in stillness.",
+    "makiEyebrow": "Maki",
+    "makiTitle": "Rolls",
+    "nigiriEyebrow": "Nigiri",
+    "nigiriTitle": "Hand-pressed",
+    "moreFromKitchen": "More from the kitchen",
+    "bowlsAndSides": "Bowls & Sides",
+    "bowls": "Bowls",
+    "sides": "Sides",
+    "footerVisit": "Visit",
+    "footerContact": "Contact",
+    "footerMonThu": "Mon–Thu",
+    "footerFriSat": "Fri–Sat",
+    "footerSunday": "Sunday",
+    "footerPhone": "phone",
+    "footerEmail": "email",
+    "currencyLabel": "kr"
+  },
+  "homePage": {
+    "heroEyebrow": "Sushi in central Gävle",
+    "heroHeadline": "Carefully prepared sushi for quiet evenings in the city.",
+    "heroSubheadline": "From signature rolls to omakase sets — served in a warm, understated setting near Stortorget.",
+    "aboutTitle": "Our craft",
+    "aboutIntro": "We believe in a quieter way of eating sushi — with care in every detail, from the temperature of the rice to the cut of the fish.",
+    "aboutBody1": "At Sumi, we work with a small, focused menu where every dish has room to breathe. The menu is built for both a quick lunch and a longer dinner in good company.",
+    "aboutBody2": "The atmosphere is warm and stripped back, inspired by modern Japanese minimalism. The pace is a little slower, the flavours cleaner, the experience more considered.",
+    "aboutBody3": "We serve classic nigiri, signature rolls, and an omakase set for those who want to let the kitchen choose the evening's highlights.",
+    "menuTitle": "From the kitchen",
+    "menuSubtitle": "Three favourites that set the tone for the menu.",
+    "featuredItem1Name": "Signature Rolls",
+    "featuredItem1Desc": "Salmon, avocado, cucumber, chilli mayo, crispy onion, and trout roe.",
+    "featuredItem2Name": "Chef's Selection Nigiri",
+    "featuredItem2Desc": "Eight pieces of nigiri with salmon, tuna, prawn, and the chef's toppings of the day.",
+    "featuredItem3Name": "Omakase Set",
+    "featuredItem3Desc": "A curated set of nigiri, maki, and seasonal selections — perfect to share or enjoy solo.",
+    "reservationCtaTitle": "Reserve a quiet evening in central Gävle",
+    "reservationCtaText": "Perfect for a quiet dinner, a spontaneous weekday visit, or an evening where the food takes centre stage.",
+    "visitTitle": "Visit us",
+    "mapLabel": "Find Sumi",
+    "altSignatureRolls": "Signature rolls",
+    "altNigiriSelection": "Nigiri selection",
+    "makiSection": {
+      "signatureRoll": "Signature Roll",
+      "signatureRollDesc": "Salmon, avocado, cucumber, chilli mayo, crispy onion, trout roe",
+      "torchedYellowtail": "Torched Yellowtail",
+      "torchedYellowtailDesc": "Yellowtail, jalapeño, ponzu, sesame, yuzu zest",
+      "nordicCrunch": "Nordic Crunch",
+      "nordicCrunchDesc": "Cold-smoked salmon, dill cream, capers, pickled red onion",
+      "spicyTuna": "Spicy Tuna",
+      "spicyTunaDesc": "Bluefin tuna tartare, sriracha mayo, cucumber, toasted sesame"
+    }
   },
   "a11y": {
     "logo": "Sumi home"

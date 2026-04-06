@@ -5,7 +5,7 @@ import Menu from '../components/menu';
 import SushiMosaic from '../components/sushi-mosaic';
 import ReserveCta from '../components/reserve-cta';
 import About from '../components/about';
-import Footer from '../components/footer';
+import Footer from '../components/menu-footer';
 
 export default function HomePage() {
   return (

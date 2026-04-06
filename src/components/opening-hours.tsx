@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Sun, Moon } from 'lucide-react';
 import restaurantData from '@data/restaurant.json';
 
@@ -10,19 +11,31 @@ interface DayEntry {
   hours: string;
 }
 
-function getSlotLabel(timeRange: string, isFirst: boolean): string {
-  if (!isFirst) return 'Dinner';
+function getSlotLabel(timeRange: string, isFirst: boolean, t: (key: string) => string): string {
+  if (!isFirst) return t('visit.dinner');
   const startHour = parseInt(timeRange.split(':')[0], 10);
-  return startHour < 13 ? 'Lunch' : 'Afternoon';
+  return startHour < 13 ? t('visit.lunch') : t('visit.afternoon');
 }
 
 function formatRange(raw: string): string {
   return raw.replace('–', ' – ');
 }
 
+const dayKeyMap: Record<string, string> = {
+  Monday: 'visit.monday',
+  Tuesday: 'visit.tuesday',
+  Wednesday: 'visit.wednesday',
+  Thursday: 'visit.thursday',
+  Friday: 'visit.friday',
+  Saturday: 'visit.saturday',
+  Sunday: 'visit.sunday',
+};
+
 export default function OpeningHours() {
+  const { t } = useTranslation('common');
+
   const cards: DayEntry[] = [
-    consolidatedWeekdays,
+    { days: 'monThu', hours: consolidatedWeekdays.hours },
     ...openingHours.display.filter(
       ({ days }) => !['Monday', 'Tuesday', 'Wednesday', 'Thursday'].includes(days)
     ),
@@ -35,7 +48,8 @@ export default function OpeningHours() {
           {cards.map(({ days, hours }, index) => {
             const isReservationOnly = reservationOnlyDays.includes(days);
             const [firstSlot, secondSlot] = hours.split(', ');
-            const firstLabel = getSlotLabel(firstSlot, true);
+            const firstLabel = getSlotLabel(firstSlot, true, t);
+            const dayLabel = days === 'monThu' ? t('visit.monThu') : t(dayKeyMap[days]);
 
             return (
               <motion.div
@@ -48,7 +62,7 @@ export default function OpeningHours() {
               >
                 {/* Day name */}
                 <p className="text-sm font-sans font-medium text-text-primary tracking-[0.06em] mb-5">
-                  {days}
+                  {dayLabel}
                 </p>
 
                 {/* First slot — Lunch or Afternoon */}
@@ -73,12 +87,12 @@ export default function OpeningHours() {
                     />
                     {isReservationOnly ? (
                       <p className="text-[10px] font-sans uppercase tracking-wider">
-                        <span className="text-text-muted">Dinner</span>
-                        <span className="text-accent"> · Reservation</span>
+                        <span className="text-text-muted">{t('visit.dinner')}</span>
+                        <span className="text-accent"> · {t('visit.reservation')}</span>
                       </p>
                     ) : (
                       <p className="text-[10px] font-sans uppercase tracking-wider text-text-muted">
-                        Dinner
+                        {t('visit.dinner')}
                       </p>
                     )}
                   </div>

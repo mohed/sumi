@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
@@ -17,6 +17,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { t, i18n: i18nInstance } = useTranslation('common');
   const activeLang = i18nInstance.language?.slice(0, 2) as 'en' | 'sv';
+  const location = useLocation();
 
   function toggleLanguage() {
     const next = activeLang === 'en' ? 'sv' : 'en';
@@ -52,7 +53,7 @@ export default function Navbar() {
           <button
             onClick={toggleLanguage}
             className="text-xs font-sans uppercase tracking-widest text-text-muted hover:text-text-primary transition-colors duration-200"
-            aria-label="Switch language"
+            aria-label={t('navbar.switchLanguage')}
           >
             {LANGUAGES.filter(l => l !== activeLang).join('')}
           </button>
@@ -72,13 +73,15 @@ export default function Navbar() {
 
         {/* Right — View Menu (desktop) + Hamburger (mobile) */}
         <div className="flex items-center justify-end gap-4">
-          <Link
-            to="/menu"
-            className="hidden md:inline-block px-5 py-2 text-sm font-sans text-text-primary border border-white/30
-                       hover:border-white/60 transition-colors duration-200 rounded-sm tracking-wider"
-          >
-            {t('navbar.viewMenu')}
-          </Link>
+          {location.pathname !== '/menu' && (
+            <Link
+              to="/menu"
+              className="hidden md:inline-block px-5 py-2 text-sm font-sans text-text-primary border border-white/30
+                         hover:border-white/60 transition-colors duration-200 rounded-sm tracking-wider"
+            >
+              {t('navbar.viewMenu')}
+            </Link>
+          )}
 
           {/* Mobile hamburger */}
           <Sheet>
@@ -102,6 +105,7 @@ export default function Navbar() {
                 </SheetTitle>
               </SheetHeader>
               <div className="flex flex-col items-center gap-6 mt-10">
+              {location.pathname !== '/menu' && (
                 <Link
                   to="/menu"
                   className="px-8 py-3 text-sm font-sans text-text-primary border border-white/30
@@ -109,6 +113,7 @@ export default function Navbar() {
                 >
                   {t('navbar.viewMenu')}
                 </Link>
+              )}
                 <a
                   href={reserveHref}
                   className="text-sm font-sans text-text-secondary hover:text-text-primary transition-colors duration-200"
@@ -118,13 +123,10 @@ export default function Navbar() {
                 <button
                   onClick={toggleLanguage}
                   className="text-xs font-sans uppercase tracking-widest text-text-muted hover:text-text-primary transition-colors duration-200"
-                  aria-label="Switch language"
+                  aria-label={t('navbar.switchLanguage')}
                 >
                   {LANGUAGES.filter(l => l !== activeLang).join('')}
                 </button>
-                <p className="text-text-muted text-xs font-sans tracking-wide">
-                  {contact.phone}
-                </p>
               </div>
             </SheetContent>
           </Sheet>

@@ -217,7 +217,6 @@
         "description": "Salmon, avocado, cucumber, chilli mayo, crispy onion, and trout roe.",
         "price": 149,
         "formattedPrice": "149 kr",
-        "image": "/images/menu/menu-card-rolls-768.avif",
         "badge": "Popular"
       },
       {
@@ -227,7 +226,6 @@
         "description": "Eight pieces of nigiri with salmon, tuna, prawn, and the chef's toppings of the day.",
         "price": 189,
         "formattedPrice": "189 kr",
-        "image": "/images/menu/menu-card-nigiri-768.avif",
         "badge": "Recommended"
       },
       {
@@ -237,29 +235,37 @@
         "description": "A curated set of nigiri, maki, and seasonal selections — perfect to share or enjoy solo.",
         "price": 249,
         "formattedPrice": "249 kr",
-        "image": "/images/menu/menu-card-omakase-768.avif",
         "badge": "Signature"
       }
     ],
     "sections": [
       {
-        "id": "recommended",
-        "title": "Recommended",
+        "id": "maki",
+        "title": "Maki",
         "items": [
           {
-            "name": "Signature Rolls",
+            "name": "Signature Roll",
+            "description": "Salmon, avocado, cucumber, chilli mayo, crispy onion, trout roe",
             "price": 149,
             "formattedPrice": "149 kr"
           },
           {
-            "name": "Chef's Selection Nigiri",
-            "price": 189,
-            "formattedPrice": "189 kr"
+            "name": "Torched Yellowtail",
+            "description": "Yellowtail, jalapeño, ponzu, sesame, yuzu zest",
+            "price": 159,
+            "formattedPrice": "159 kr"
           },
           {
-            "name": "Omakase Set",
-            "price": 249,
-            "formattedPrice": "249 kr"
+            "name": "Nordic Crunch",
+            "description": "Cold-smoked salmon, dill cream, capers, pickled red onion",
+            "price": 155,
+            "formattedPrice": "155 kr"
+          },
+          {
+            "name": "Spicy Tuna",
+            "description": "Bluefin tuna tartare, sriracha mayo, cucumber, toasted sesame",
+            "price": 165,
+            "formattedPrice": "165 kr"
           }
         ]
       },
@@ -386,7 +392,16 @@
           }
         ]
       }
-    ]
+    ],
+    "omakase": {
+      "id": "omakase",
+      "title": "Omakase Set",
+      "tagline": "Trust the kitchen.",
+      "description": "A curated progression of nigiri, maki, and seasonal selections composed by the chef each evening. Perfect to share or to eat alone in full.",
+      "price": 249,
+      "formattedPrice": "249 kr",
+      "badge": "Signature"
+    }
   },
   "reservationCta": {
     "title": "Reserve a quiet evening in central Gävle",

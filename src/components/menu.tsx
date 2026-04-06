@@ -16,6 +16,18 @@ const cardImageMap = {
 
 type FeaturedItemId = keyof typeof cardImageMap;
 
+const featuredDisplayNames: Record<string, string> = {
+  'signature-rolls': 'homePage.featuredItem1Name',
+  'chef-selection': 'homePage.featuredItem2Name',
+  'omakase-set': 'homePage.featuredItem3Name',
+};
+
+const featuredDisplayDescs: Record<string, string> = {
+  'signature-rolls': 'homePage.featuredItem1Desc',
+  'chef-selection': 'homePage.featuredItem2Desc',
+  'omakase-set': 'homePage.featuredItem3Desc',
+};
+
 export default function Menu() {
   const { t } = useTranslation('common');
 
@@ -30,9 +42,9 @@ export default function Menu() {
           className="text-center mb-14"
         >
           <h2 className="font-serif text-3xl lg:text-5xl text-text-primary font-normal tracking-tight mb-3">
-            {menu.title}
+            {t('homePage.menuTitle')}
           </h2>
-          <p className="text-text-secondary text-base">{menu.subtitle}</p>
+          <p className="text-text-secondary text-base">{t('homePage.menuSubtitle')}</p>
         </motion.div>
 
         {/* Card grid */}
@@ -51,11 +63,11 @@ export default function Menu() {
             return (
               <MenuCard
                 key={item.id}
-                name={item.name}
+                name={t(featuredDisplayNames[item.id as FeaturedItemId])}
                 category={item.category}
-                description={item.description}
+                description={t(featuredDisplayDescs[item.id as FeaturedItemId])}
                 formattedPrice={item.formattedPrice}
-                badge={item.badge}
+                badge={t(`menu.${item.badge.toLowerCase()}` as const)}
                 imageData={imageData}
               />
             );

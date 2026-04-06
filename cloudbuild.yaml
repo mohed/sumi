@@ -1,0 +1,55 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/samurajstudio/sumi:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/samurajstudio/sumi:latest'
+      - '.'
+
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/samurajstudio/sumi:$COMMIT_SHA'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/samurajstudio/sumi:latest'
+
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'sumi'
+      - '--image'
+      - 'gcr.io/samurajstudio/sumi:$COMMIT_SHA'
+      - '--region'
+      - 'europe-north1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--quiet'
+
+images:
+  - 'gcr.io/samurajstudio/sumi:$COMMIT_SHA'
+  - 'gcr.io/samurajstudio/sumi:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  substitutionOption: 'ALLOW_LOOSE'
+
+substitutions:
+  _PROJECT_ID: samurajstudio
+  _REGION: europe-north1
+  _SERVICE_NAME: sumi
+
+# Manual deploy (COMMIT_SHA not auto-set outside repo triggers):
+#   gcloud builds submit --config cloudbuild.yaml \
+#     --substitutions=COMMIT_SHA=$(git rev-parse --short HEAD) \
+#     --project samurajstudio .

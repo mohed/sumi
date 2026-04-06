@@ -1,9 +1,7 @@
 
 import { motion } from 'framer-motion';
-import restaurantData from '@data/restaurant.json';
+import { useTranslation } from 'react-i18next';
 import imageManifest from '@data/image-manifest.json';
-
-const { about } = restaurantData;
 
 const aboutSizes = imageManifest.images.about.sizes;
 const avifSrcset = aboutSizes.map((s) => `${s.avif} ${s.width}w`).join(', ');
@@ -11,6 +9,8 @@ const webpSrcset = aboutSizes.map((s) => `${s.webp} ${s.width}w`).join(', ');
 const defaultSrc = imageManifest.images.about.default.webp;
 
 export default function About() {
+  const { t } = useTranslation('common');
+
   return (
     <section id="about" className="bg-bg-deepest py-20 border-b border-accent/35">
       <div className="max-w-6xl mx-auto px-6">
@@ -60,19 +60,20 @@ export default function About() {
             className="flex flex-col justify-center px-8 lg:pl-14 xl:pl-20 py-12 lg:py-0"
           >
             <h2 className="font-serif text-3xl lg:text-4xl xl:text-5xl text-text-primary font-normal tracking-tight mb-8 leading-tight">
-              {about.title}
+              {t('homePage.aboutTitle')}
             </h2>
             <p className="text-text-secondary text-base leading-[1.8] mb-5">
-              {about.intro}
+              {t('homePage.aboutIntro')}
             </p>
-            {about.body.map((para, i) => (
-              <p
-                key={i}
-                className="text-text-secondary text-base leading-[1.8] mb-5 last:mb-0"
-              >
-                {para}
-              </p>
-            ))}
+            <p className="text-text-secondary text-base leading-[1.8] mb-5">
+              {t('homePage.aboutBody1')}
+            </p>
+            <p className="text-text-secondary text-base leading-[1.8] mb-5">
+              {t('homePage.aboutBody2')}
+            </p>
+            <p className="text-text-secondary text-base leading-[1.8]">
+              {t('homePage.aboutBody3')}
+            </p>
           </motion.div>
         </div>
       </div>

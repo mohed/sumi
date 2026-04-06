@@ -57,7 +57,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-xs font-sans tracking-[0.25em] uppercase text-text-secondary"
           >
-            {hero.eyebrow}
+            {t('homePage.heroEyebrow')}
           </motion.p>
 
           <motion.h1
@@ -65,14 +65,14 @@ export default function Hero() {
             className="font-serif font-normal text-text-primary leading-tight tracking-tight
                        text-[clamp(3rem,8vw,6rem)]"
           >
-            {hero.headline}
+            {t('homePage.heroHeadline')}
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="font-sans text-base sm:text-lg text-text-secondary max-w-lg leading-relaxed"
           >
-            {hero.subheadline}
+            {t('homePage.heroSubheadline')}
           </motion.p>
 
           <motion.div

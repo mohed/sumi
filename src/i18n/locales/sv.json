@@ -4,7 +4,8 @@
     "closeMenu": "Stäng meny",
     "ourCraft": "Vårt hantverk",
     "viewMenu": "Se menyn",
-    "reserve": "Boka"
+    "reserve": "Boka",
+    "switchLanguage": "Byt språk"
   },
   "hero": {
     "scrollDown": "Skrolla ner"
@@ -25,11 +26,78 @@
     "address": "Adress",
     "openingHours": "Öppettider",
     "closed": "Stängt",
-    "findUs": "Hitta till Sumi"
+    "findUs": "Hitta till Sumi",
+    "lunch": "Lunch",
+    "afternoon": "Eftermiddag",
+    "dinner": "Middag",
+    "reservation": "Bokning",
+    "monday": "Måndag",
+    "tuesday": "Tisdag",
+    "wednesday": "Onsdag",
+    "thursday": "Torsdag",
+    "friday": "Fredag",
+    "saturday": "Lördag",
+    "sunday": "Söndag",
+    "monThu": "Mån – Tor"
   },
   "footer": {
     "instagram": "Instagram",
     "allRightsReserved": "Med ensamrätt."
+  },
+  "menuPage": {
+    "houseSignatures": "Husrätter",
+    "letUsPickForOnce": "Låt oss välja denna gång",
+    "bannerQuote": "Handgjort med omsorg, serverat i stillhet.",
+    "makiEyebrow": "Maki",
+    "makiTitle": "Rullar",
+    "nigiriEyebrow": "Nigiri",
+    "nigiriTitle": "Handpressade",
+    "moreFromKitchen": "Mer från köket",
+    "bowlsAndSides": "Bowls & Sides",
+    "bowls": "Bowls",
+    "sides": "Förrätt",
+    "footerVisit": "Besök",
+    "footerContact": "Kontakt",
+    "footerMonThu": "Mån–Tor",
+    "footerFriSat": "Fre–Lör",
+    "footerSunday": "Söndag",
+    "footerPhone": "telefon",
+    "footerEmail": "e-post",
+    "currencyLabel": "kr"
+  },
+  "homePage": {
+    "heroEyebrow": "Sushi i centrala Gävle",
+    "heroHeadline": "Noggrant tillagat sushi för stillsamma kvällar i staden.",
+    "heroSubheadline": "Från signaturrullar till omakase-set — serverat i en varm, återhållsam miljö nära Stortorget.",
+    "aboutTitle": "Vårt hantverk",
+    "aboutIntro": "Vi tror på ett tystare sätt att äta sushi — med omsorg i varje detalj, från risets temperatur till fiskens snitt.",
+    "aboutBody1": "På Sumi arbetar vi med en liten, fokuserad meny där varje rätt får utrymme att andas. Menyn passar både för en snabb lunch och en längre middag i gott sällskap.",
+    "aboutBody2": "Atmosfären är varm och avskalad, inspirerad av modern japansk minimalism. Tempot är lite långsammare, smakerna renare, upplevelsen mer genomtänkt.",
+    "aboutBody3": "Vi serverar klassisk nigiri, signaturrullar och ett omakase-set för den som vill låta köket välja kvällens höjdpunkter.",
+    "menuTitle": "Från köket",
+    "menuSubtitle": "Tre favoriter som sätter tonen för menyn.",
+    "featuredItem1Name": "Signaturrullar",
+    "featuredItem1Desc": "Lax, avocado, gurka, chillimajonnäs, krispig lök och laxrom.",
+    "featuredItem2Name": "Kockens urval nigiri",
+    "featuredItem2Desc": "Åtta bitar nigiri med lax, tonfisk, räka och kockens dagsfärsker av säsongen.",
+    "featuredItem3Name": "Omakase-set",
+    "featuredItem3Desc": "Ett kuraterat set med nigiri, maki och säsongsbetonade utvaler komponerade av kocken varje kväll. Perfekt att dela eller att avnjuta ensam.",
+    "reservationCtaTitle": "Boka en stillsam kväll i centrala Gävle",
+    "reservationCtaText": "Perfekt för en lugn middag, ett spontant besök på vardagen, eller en kväll där maten tar plats.",
+    "visitTitle": "Besök oss",
+    "mapLabel": "Hitta till Sumi",
+    "altSignatureRolls": "Signaturrullar",
+    "altNigiriSelection": "Nigiriurval",
+    "makiSection": {
+      "signatureRoll": "Signaturrulle",
+      "signatureRollDesc": "Lax, avocado, gurka, chillimajonnäs, krispig lök, laxrom",
+      "torchedYellowtail": "Flambrad yellowtail",
+      "torchedYellowtailDesc": "Yellowtail, jalapeño, ponzu, sesam, yuzuzest",
+      "nordicCrunch": "Nordic Crunch",
+      "nordicCrunchDesc": "Rökt lax, dillcrème, kapris, inlagd rödlök",
+      "spicyTuna": "Spicy Tuna",
+      "spicyTunaDesc": "Gul safir tonalbinatare, srirachamajonnäs, gurka, rostad sesam"
+    }
   },
   "a11y": {
     "logo": "Sumi startsida"

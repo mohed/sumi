@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import restaurantData from '@data/restaurant.json';
 
 const { assets, location, contact } = restaurantData;
 
 export default function Footer() {
+  const { t } = useTranslation('common');
   return (
     <footer className="bg-bg-raised border-t border-white/6">
       <div className="max-w-6xl mx-auto px-6 py-14 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -31,7 +33,7 @@ export default function Footer() {
             href={contact.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram"
+            aria-label={t('footer.instagram')}
             className="text-text-muted hover:text-text-primary transition-colors duration-200"
           >
             <svg
@@ -52,7 +54,7 @@ export default function Footer() {
             </svg>
           </a>
           <p className="text-text-muted text-xs font-sans border-t border-white/5 pt-2 mt-1">
-            © {new Date().getFullYear()} Sumi. All rights reserved.
+            © {new Date().getFullYear()} Sumi. {t('footer.allRightsReserved')}
           </p>
         </div>
       </div>
