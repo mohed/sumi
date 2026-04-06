@@ -244,24 +244,28 @@
         "title": "Maki",
         "items": [
           {
+            "id": "signature-roll",
             "name": "Signature Roll",
             "description": "Salmon, avocado, cucumber, chilli mayo, crispy onion, trout roe",
             "price": 149,
             "formattedPrice": "149 kr"
           },
           {
+            "id": "torched-yellowtail",
             "name": "Torched Yellowtail",
             "description": "Yellowtail, jalapeño, ponzu, sesame, yuzu zest",
             "price": 159,
             "formattedPrice": "159 kr"
           },
           {
+            "id": "nordic-crunch",
             "name": "Nordic Crunch",
             "description": "Cold-smoked salmon, dill cream, capers, pickled red onion",
             "price": 155,
             "formattedPrice": "155 kr"
           },
           {
+            "id": "spicy-tuna",
             "name": "Spicy Tuna",
             "description": "Bluefin tuna tartare, sriracha mayo, cucumber, toasted sesame",
             "price": 165,

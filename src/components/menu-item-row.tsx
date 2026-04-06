@@ -23,7 +23,7 @@ export default function MenuItemRow({
         <span className="font-serif text-text-primary text-base leading-snug shrink-0">
           {name}
         </span>
-        <span className="flex-1 border-b border-dotted border-white/18" />
+        <span className="flex-1 border-b border-dotted border-white/28" />
         <span className="font-sans text-accent text-sm whitespace-nowrap shrink-0 text-right">
           {formattedPrice}
         </span>

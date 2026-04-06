@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { buildAvifSrcset, buildWebpSrcset } from '@/lib/utils';
 
 interface CardImageSize {
   width: number;
@@ -29,8 +30,8 @@ export default function MenuCard({
   badge,
   imageData,
 }: MenuCardProps) {
-  const avifSrcset = imageData.sizes.map((s) => `${s.avif} ${s.width}w`).join(', ');
-  const webpSrcset = imageData.sizes.map((s) => `${s.webp} ${s.width}w`).join(', ');
+  const avifSrcset = buildAvifSrcset(imageData.sizes);
+  const webpSrcset = buildWebpSrcset(imageData.sizes);
 
   return (
     <motion.div
@@ -70,7 +71,7 @@ export default function MenuCard({
             <span className="block text-xs font-sans text-text-muted uppercase tracking-[0.15em] mb-1.5">
               {category}
             </span>
-            <h3 className="font-sans font-medium text-lg text-text-primary leading-snug">
+            <h3 className="font-serif font-normal text-lg text-text-primary leading-snug">
               {name}
             </h3>
           </div>

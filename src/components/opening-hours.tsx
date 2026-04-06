@@ -111,7 +111,7 @@ export default function OpeningHours() {
 
         {/* Mobile: compact two-column list */}
         <div className="md:hidden py-6">
-          {cards.map(({ days, hours }, index) => {
+          {cards.map(({ days, hours }) => {
             const dayLabel = days === 'monThu' ? t('visit.monThu') : t(dayKeyMap[days]);
             return (
               <div

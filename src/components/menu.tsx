@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next';
 import MenuCard from './menu-card';
 import restaurantData from '@data/restaurant.json';
 import imageManifest from '@data/image-manifest.json';
+import { featuredItems } from '@/lib/featured-items';
+import { buildAvifSrcset, buildWebpSrcset } from '@/lib/utils';
+import ResponsiveImage from './responsive-image';
 
 const { menu } = restaurantData;
 
@@ -15,18 +18,6 @@ const cardImageMap = {
 } as const;
 
 type FeaturedItemId = keyof typeof cardImageMap;
-
-const featuredDisplayNames: Record<string, string> = {
-  'signature-rolls': 'homePage.featuredItem1Name',
-  'chef-selection': 'homePage.featuredItem2Name',
-  'omakase-set': 'homePage.featuredItem3Name',
-};
-
-const featuredDisplayDescs: Record<string, string> = {
-  'signature-rolls': 'homePage.featuredItem1Desc',
-  'chef-selection': 'homePage.featuredItem2Desc',
-  'omakase-set': 'homePage.featuredItem3Desc',
-};
 
 export default function Menu() {
   const { t } = useTranslation('common');
@@ -66,9 +57,9 @@ export default function Menu() {
             return (
               <MenuCard
                 key={item.id}
-                name={t(featuredDisplayNames[item.id as FeaturedItemId])}
+                name={t(featuredItems[item.id as FeaturedItemId].name)}
                 category={item.category}
-                description={t(featuredDisplayDescs[item.id as FeaturedItemId])}
+                description={t(featuredItems[item.id as FeaturedItemId].desc)}
                 formattedPrice={item.formattedPrice}
                 badge={t(`menu.${item.badge.toLowerCase()}` as const)}
                 imageData={imageData}
@@ -82,8 +73,8 @@ export default function Menu() {
       <div className="md:hidden">
         {menu.featuredItems.map((item, index) => {
           const imageData = getItemImageData(item.id as FeaturedItemId);
-          const avifSrcset = imageData.sizes.map((s) => `${s.avif} ${s.width}w`).join(', ');
-          const webpSrcset = imageData.sizes.map((s) => `${s.webp} ${s.width}w`).join(', ');
+          const avifSrcset = buildAvifSrcset(imageData.sizes);
+          const webpSrcset = buildWebpSrcset(imageData.sizes);
           // Alternating backgrounds: black (0, 2) → grey (1) → black
           const bgClass = index % 2 === 1 ? 'bg-bg-raised' : 'bg-bg-deepest';
           const hasBorder = index < menu.featuredItems.length - 1;
@@ -91,24 +82,13 @@ export default function Menu() {
             <div key={item.id} className={`${bgClass} ${hasBorder ? 'border-b border-accent/35' : ''}`}>
               {/* Image - truly full width, no parent constraints */}
               <div className="w-full">
-                <picture>
-                  <source
-                    type="image/avif"
-                    srcSet={avifSrcset}
-                    sizes="100vw"
-                  />
-                  <source
-                    type="image/webp"
-                    srcSet={webpSrcset}
-                    sizes="100vw"
-                  />
-                  <img
-                    src={imageData.default.avif}
-                    alt={t(featuredDisplayNames[item.id as FeaturedItemId])}
-                    loading="lazy"
-                    className="w-full h-auto object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                </picture>
+                <ResponsiveImage
+                  avifSrcset={avifSrcset}
+                  webpSrcset={webpSrcset}
+                  src={imageData.default.avif}
+                  alt={t(featuredItems[item.id as FeaturedItemId].name)}
+                  className="w-full h-auto object-cover transition-transform duration-500 hover:scale-110"
+                />
               </div>
               {/* Text content - centered with max-width for readability */}
               <div className="px-6 py-16 max-w-2xl mx-auto">
@@ -116,11 +96,11 @@ export default function Menu() {
                   {item.category}
                 </p>
                 <h3 className="font-serif text-3xl text-text-primary mb-2">
-                  {t(featuredDisplayNames[item.id as FeaturedItemId])}
+                  {t(featuredItems[item.id as FeaturedItemId].name)}
                 </h3>
                 <div className="w-8 border-t border-accent mb-6" />
                 <p className="text-lg text-text-secondary mb-4">
-                  {t(featuredDisplayDescs[item.id as FeaturedItemId])}
+                  {t(featuredItems[item.id as FeaturedItemId].desc)}
                 </p>
                 <p className="font-serif text-3xl text-accent">
                   {item.formattedPrice}

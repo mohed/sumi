@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import restaurantData from '@data/restaurant.json';
 
@@ -12,11 +13,17 @@ export default function ReserveCta() {
         <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] md:items-center gap-0">
 
           {/* Left — Reserve CTA */}
-          <div className="py-12 md:py-16 md:pr-12 flex flex-col items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="py-12 md:py-16 md:pr-12 flex flex-col items-center text-center"
+          >
             <h2 className="font-serif text-2xl md:text-3xl lg:text-5xl text-text-primary font-normal tracking-tight leading-tight mb-6">
               {t('homePage.reservationCtaTitle')}
             </h2>
-            <p className="text-text-primary text-base lg:text-lg leading-relaxed mb-8 max-w-md">
+            <p className="text-text-secondary text-base lg:text-lg leading-relaxed mb-8 max-w-md">
               {t('homePage.reservationCtaText')}
             </p>
             <a
@@ -26,13 +33,19 @@ export default function ReserveCta() {
             >
               {t('reserve.reserveTable')}
             </a>
-          </div>
+          </motion.div>
 
           {/* Vertical separator — accent line */}
           <div className="w-full md:w-px bg-accent/35 h-px md:h-auto self-stretch" />
 
           {/* Right — Visit info */}
-          <div className="py-12 md:py-16 md:pl-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+            className="py-12 md:py-16 md:pl-12 text-center"
+          >
             <h3 className="font-serif text-2xl md:text-3xl lg:text-5xl text-text-primary font-normal leading-tight mb-6">
               {t('homePage.visitTitle')}
             </h3>
@@ -69,7 +82,7 @@ export default function ReserveCta() {
                 {contact.email}
               </a>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -1,10 +1,20 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { MotionConfig } from 'framer-motion';
 import HomePage from './pages/home';
 import MenuPage from './pages/menu';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 export default function App() {
   return (
+    <MotionConfig reducedMotion="user">
     <BrowserRouter>
+      <ScrollToTop />
       <div className="relative min-h-screen">
         <div className="pt-16 md:pt-0">
           <Routes>
@@ -29,5 +39,6 @@ export default function App() {
         </div>
       </div>
     </BrowserRouter>
+    </MotionConfig>
   );
 }

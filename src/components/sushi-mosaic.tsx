@@ -11,7 +11,7 @@ const mosaicImages = [
 export default function SushiMosaic() {
   return (
     <section className="w-full h-48 md:h-64 overflow-hidden border-b border-accent/35">
-      <div className="flex h-full">
+      <div className="flex h-full divide-x divide-accent/35">
         {mosaicImages.map((img, i) => (
           <div key={i} className={`${i >= 3 ? "hidden lg:block" : i >= 2 ? "hidden md:block" : ""} flex-1 relative overflow-hidden`}>
             <picture>

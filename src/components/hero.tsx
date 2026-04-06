@@ -1,16 +1,17 @@
 
 import { Link } from 'react-router-dom';
 import { motion, type Variants } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import restaurantData from '@data/restaurant.json';
 import imageManifest from '@data/image-manifest.json';
+import { buildAvifSrcset, buildWebpSrcset } from '@/lib/utils';
+import ResponsiveImage from './responsive-image';
 
 const { hero } = restaurantData;
 
 const heroSizes = imageManifest.images.hero.sizes;
-const avifSrcset = heroSizes.map((s) => `${s.avif} ${s.width}w`).join(', ');
-const webpSrcset = heroSizes.map((s) => `${s.webp} ${s.width}w`).join(', ');
+const avifSrcset = buildAvifSrcset(heroSizes);
+const webpSrcset = buildWebpSrcset(heroSizes);
 const defaultSrc = imageManifest.images.hero.default.webp;
 
 const containerVariants: Variants = {
@@ -30,23 +31,22 @@ export default function Hero() {
     <section className="relative h-screen overflow-hidden flex items-center justify-center border-b border-accent/35">
       {/* Background image with slow zoom */}
       <div className="absolute inset-0 animate-hero-zoom">
-        <picture>
-          <source type="image/avif" srcSet={avifSrcset} sizes="100vw" />
-          <source type="image/webp" srcSet={webpSrcset} sizes="100vw" />
-          <img
-            src={defaultSrc}
-            alt="Five maki rolls on a dark stone platter"
-            className="w-full h-full object-cover"
-            fetchPriority="high"
-          />
-        </picture>
+        <ResponsiveImage
+          avifSrcset={avifSrcset}
+          webpSrcset={webpSrcset}
+          src={defaultSrc}
+          alt="Five maki rolls on a dark stone platter"
+          loading="eager"
+          fetchPriority="high"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Dark overlay — gradient for cinematic depth */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-black/10" />
 
       {/* Content */}
-      <div className="relative z-10 px-6 text-center max-w-3xl mx-auto" style={{ marginBottom: '20vh', marginTop: '20vh' }}>
+      <div className="relative z-10 px-6 text-center max-w-3xl mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -96,15 +96,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <a
-        href="#about"
-        aria-label={t('hero.scrollDown')}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/55
-                   hover:text-white/75 transition-colors animate-bounce"
-      >
-        <ChevronDown size={24} />
-      </a>
     </section>
   );
 }

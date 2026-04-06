@@ -1,12 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import i18n from '@/i18n';
 import restaurantData from '@data/restaurant.json';
 
-const { contact, assets, location, openingHours } = restaurantData;
-const { consolidatedWeekdays } = openingHours.displayConfig;
-const fridayHours = openingHours.display.find((d) => d.days === 'Friday')?.hours ?? '';
-const saturdayHours = openingHours.display.find((d) => d.days === 'Saturday')?.hours ?? '';
-const sundayHours = openingHours.display.find((d) => d.days === 'Sunday')?.hours ?? '';
+const { contact, assets, location, visit } = restaurantData;
 
 export default function MenuFooter() {
   const { t, i18n: i18nInstance } = useTranslation('common');
@@ -14,34 +9,30 @@ export default function MenuFooter() {
 
   function toggleLanguage() {
     const next = activeLang === 'en' ? 'sv' : 'en';
-    i18n.changeLanguage(next);
+    i18nInstance.changeLanguage(next);
   }
 
   return (
-    <footer className="bg-bg-deepest border-t border-accent/35">
+    <footer className="bg-bg-deepest">
       <div className="max-w-6xl mx-auto px-6 py-12">
-        {/* Desktop 3-column grid */}
+        {/* 3-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mb-12">
-          {/* Col 1 — Visit */}
+          {/* Col 1 — Location */}
           <div>
             <p className="text-[10px] font-sans font-medium tracking-[0.2em] uppercase text-accent mb-4">
               {t('menuPage.footerVisit')}
             </p>
-            <p className="text-text-secondary text-sm leading-relaxed mb-3">
+            <p className="text-text-secondary text-sm leading-relaxed mb-2">
               {location.displayAddress}
             </p>
-            <p className="text-text-muted text-xs leading-relaxed">
-              {t('menuPage.footerMonThu')} {consolidatedWeekdays.hours}
-            </p>
-            <p className="text-text-muted text-xs leading-relaxed">
-              {t('menuPage.footerFri')} {fridayHours}
-            </p>
-            <p className="text-text-muted text-xs leading-relaxed">
-              {t('menuPage.footerSat')} {saturdayHours}
-            </p>
-            <p className="text-text-muted text-xs leading-relaxed">
-              {t('menuPage.footerSunday')} {sundayHours}
-            </p>
+            <a
+              href={visit.mapLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-sans text-accent hover:text-accent-hover transition-colors duration-200"
+            >
+              {t('homePage.mapLabel')} →
+            </a>
           </div>
 
           {/* Col 2 — Contact */}
@@ -51,7 +42,7 @@ export default function MenuFooter() {
             </p>
             <div className="space-y-2">
               <a
-                href={`tel:${contact.phone.replace(/\s/g, '')}`}
+                href={`tel:${contact.phone.replace(/[\s-]/g, '')}`}
                 className="block text-text-secondary text-sm hover:text-text-primary transition-colors duration-200"
               >
                 {contact.phone}
@@ -105,7 +96,7 @@ export default function MenuFooter() {
           </div>
         </div>
 
-        {/* Divider */}
+        {/* Bottom bar */}
         <div className="border-t border-white/6 pt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p className="text-text-muted text-xs font-sans text-center md:text-left">
             © {new Date().getFullYear()} Sumi. {t('footer.allRightsReserved')}
