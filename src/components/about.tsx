@@ -21,7 +21,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="relative min-h-[360px] lg:min-h-[520px] overflow-hidden rounded-sm"
+            className="relative min-h-[280px] sm:min-h-[320px] md:min-h-[400px] lg:min-h-[520px] overflow-hidden rounded-sm"
           >
             <picture>
               <source

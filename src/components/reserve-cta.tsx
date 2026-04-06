@@ -10,7 +10,7 @@ export default function ReserveCta() {
   return (
     <section className="bg-bg-raised border-b border-accent/35">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center">
+        <div className="flex flex-col md:grid md:grid-cols-[1fr_auto_1fr] md:items-center gap-0">
 
           {/* Left — Reserve CTA */}
           <motion.div
@@ -18,9 +18,9 @@ export default function ReserveCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="py-16 pr-12 flex flex-col items-center text-center"
+            className="py-12 md:py-16 md:pr-12 flex flex-col items-center text-center"
           >
-            <h2 className="font-serif text-3xl lg:text-5xl text-text-primary font-normal tracking-tight leading-tight mb-6">
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-5xl text-text-primary font-normal tracking-tight leading-tight mb-6">
               {t('homePage.reservationCtaTitle')}
             </h2>
             <p className="text-text-secondary text-base lg:text-lg leading-relaxed mb-8 max-w-md">
@@ -28,7 +28,7 @@ export default function ReserveCta() {
             </p>
             <a
               href={`mailto:${contact.email}?subject=Reservation%20inquiry`}
-              className="px-10 py-4 bg-accent text-text-primary font-sans text-sm tracking-wider text-center rounded-sm
+              className="px-8 md:px-10 py-3 md:py-4 bg-accent text-text-primary font-sans text-sm tracking-wider text-center rounded-sm
                          hover:bg-accent-hover transition-colors duration-200"
             >
               {t('reserve.reserveTable')}
@@ -36,7 +36,7 @@ export default function ReserveCta() {
           </motion.div>
 
           {/* Vertical separator — accent line */}
-          <div className="w-px bg-accent/35 self-stretch" />
+          <div className="w-full md:w-px bg-accent/35 h-px md:h-auto self-stretch" />
 
           {/* Right — Visit info */}
           <motion.div
@@ -44,9 +44,9 @@ export default function ReserveCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-            className="py-16 pl-12 text-center"
+            className="py-12 md:py-16 md:pl-12 text-center"
           >
-            <h3 className="font-serif text-3xl lg:text-5xl text-text-primary font-normal leading-tight mb-6">
+            <h3 className="font-serif text-2xl md:text-3xl lg:text-5xl text-text-primary font-normal leading-tight mb-6">
               {t('homePage.visitTitle')}
             </h3>
 

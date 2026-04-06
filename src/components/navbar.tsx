@@ -39,7 +39,7 @@ export default function Navbar() {
           : 'bg-transparent border-b border-transparent'
       )}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 grid grid-cols-3 items-center">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Left — Reserve + Language toggle (desktop only) */}
         <div className="hidden md:flex items-center gap-6">

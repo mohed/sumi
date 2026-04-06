@@ -13,7 +13,7 @@ export default function SushiMosaic() {
     <section className="w-full h-48 md:h-64 overflow-hidden border-b border-accent/35">
       <div className="flex h-full">
         {mosaicImages.map((img, i) => (
-          <div key={i} className="flex-1 relative overflow-hidden">
+          <div key={i} className={i >= 3 ? "hidden md:block flex-1 relative overflow-hidden" : "flex-1 relative overflow-hidden"}>
             <picture>
               <source type="image/avif" srcSet={img.avif} />
               <source type="image/webp" srcSet={img.webp} />

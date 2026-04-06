@@ -325,32 +325,32 @@
         "title": "Bowls",
         "items": [
           {
-            "name": "Tempura Asparagus Bowl",
+            "name": "Tempura Asparagus",
             "price": 155,
             "formattedPrice": "155 kr"
           },
           {
-            "name": "Tempura Chicken Bowl",
+            "name": "Tempura Chicken",
             "price": 165,
             "formattedPrice": "165 kr"
           },
           {
-            "name": "Nordic Salmon Bowl",
+            "name": "Nordic Salmon",
             "price": 169,
             "formattedPrice": "169 kr"
           },
           {
-            "name": "Tuna Bowl",
+            "name": "Tuna",
             "price": 175,
             "formattedPrice": "175 kr"
           },
           {
-            "name": "Flamed Salmon Bowl",
+            "name": "Flamed Salmon",
             "price": 179,
             "formattedPrice": "179 kr"
           },
           {
-            "name": "Sashimi Bowl",
+            "name": "Sashimi",
             "price": 195,
             "formattedPrice": "195 kr"
           }
@@ -376,12 +376,12 @@
             "formattedPrice": "49 kr"
           },
           {
-            "name": "Asian Cucumber Salad",
+            "name": "Cucumber Salad",
             "price": 49,
             "formattedPrice": "49 kr"
           },
           {
-            "name": "Crispy Dumplings (3 pcs)",
+            "name": "Dumplings (3 pcs)",
             "price": 55,
             "formattedPrice": "55 kr"
           },

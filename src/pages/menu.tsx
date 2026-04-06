@@ -103,7 +103,7 @@ export default function MenuPage() {
         </section>
 
         {/* 2. Full-Bleed Menu Banner */}
-        <section className="relative h-[38vh] lg:h-[45vh] max-h-[520px] overflow-hidden">
+        <section className="relative h-[42vh] sm:h-[38vh] md:h-[38vh] lg:h-[45vh] max-h-[520px] overflow-hidden">
           <picture>
             <source
               type="image/avif"
@@ -126,10 +126,123 @@ export default function MenuPage() {
           </p>
         </section>
 
-        {/* 3. Maki Section — image left */}
+        {/* 3. Bowls & Sides */}
         <section className="bg-bg-deepest border-b border-accent/35">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-20 px-6">
-            {/* Image */}
+          {/* Desktop two-column */}
+          <div className="hidden md:block max-w-4xl mx-auto py-20 px-6">
+            <div className="text-center mb-14">
+              <motion.p
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                className="text-xs font-sans tracking-[0.25em] uppercase text-text-secondary mb-2"
+              >
+                {t('menuPage.moreFromKitchen')}
+              </motion.p>
+              <motion.h2
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                className="font-serif text-3xl lg:text-4xl text-text-primary"
+              >
+                {t('menuPage.bowlsAndSides')}
+              </motion.h2>
+            </div>
+
+            <div className="grid grid-cols-[1fr_1px_1fr] gap-0">
+              <div className="pr-12">
+                <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-text-secondary mb-6">
+                  {t('menuPage.bowls')}
+                </p>
+                <motion.ul
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
+                  className="space-y-3"
+                >
+                  {bowls.items.map((item) => (
+                    <MenuItemRow
+                      key={item.name}
+                      name={item.name}
+                      formattedPrice={item.formattedPrice}
+                    />
+                  ))}
+                </motion.ul>
+              </div>
+              <div className="bg-accent/30" />
+              <div className="pl-12">
+                <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-text-secondary mb-6">
+                  {t('menuPage.sides')}
+                </p>
+                <motion.ul
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
+                  className="space-y-3"
+                >
+                  {sides.items.map((item) => (
+                    <MenuItemRow
+                      key={item.name}
+                      name={item.name}
+                      formattedPrice={item.formattedPrice}
+                    />
+                  ))}
+                </motion.ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile: text-only, no image */}
+          <div className="md:hidden px-6 py-14">
+            <div className="text-center mb-10">
+              <p className="text-xs font-sans tracking-[0.25em] uppercase text-text-secondary mb-2">
+                {t('menuPage.moreFromKitchen')}
+              </p>
+              <h2 className="font-serif text-2xl text-text-primary">
+                {t('menuPage.bowlsAndSides')}
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 gap-x-8">
+              <div>
+                <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-text-secondary mb-4">
+                  {t('menuPage.bowls')}
+                </p>
+                <ul className="space-y-2">
+                  {bowls.items.map((item) => (
+                    <MenuItemRow
+                      key={item.name}
+                      name={item.name}
+                      formattedPrice={item.formattedPrice}
+                    />
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-text-secondary mb-4">
+                  {t('menuPage.sides')}
+                </p>
+                <ul className="space-y-2">
+                  {sides.items.map((item) => (
+                    <MenuItemRow
+                      key={item.name}
+                      name={item.name}
+                      formattedPrice={item.formattedPrice}
+                    />
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Maki Section — image left */}
+        <section className="bg-bg-deepest border-b border-accent/35">
+          {/* Desktop: image left + text right (unchanged) */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 lg:gap-16 items-center py-20 px-6 max-w-6xl mx-auto">
             <motion.div
               variants={fadeLeft}
               initial="hidden"
@@ -149,7 +262,6 @@ export default function MenuPage() {
               </picture>
             </motion.div>
 
-            {/* Items */}
             <div>
               <motion.p
                 variants={fadeUp}
@@ -194,12 +306,47 @@ export default function MenuPage() {
               </motion.ul>
             </div>
           </div>
+
+          {/* Mobile: full-width stacked */}
+          <div className="md:hidden">
+            <div className="aspect-[4/3] overflow-hidden">
+              <picture>
+                <source type="image/avif" srcSet={rollsImg.sources.join(', ')} />
+                <source type="image/webp" srcSet={rollsImg.fallbackSources.join(', ')} />
+                <img
+                  src={rollsImg.default}
+                  alt={t('menuPage.altSignatureRolls')}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </picture>
+            </div>
+            <div className="px-6 py-12">
+              <p className="text-xs font-sans tracking-[0.25em] uppercase text-accent mb-2">
+                {t('menuPage.makiEyebrow')}
+              </p>
+              <h2 className="font-serif text-2xl text-text-primary mb-2">
+                {t('menuPage.makiTitle')}
+              </h2>
+              <div className="w-8 border-t border-accent mb-6" />
+              <ul className="space-y-3">
+                {maki.items.map((item) => (
+                  <MenuItemRow
+                    key={item.name}
+                    name={t(makiItemNames[item.name].name)}
+                    description={t(makiItemNames[item.name].desc)}
+                    formattedPrice={item.formattedPrice}
+                  />
+                ))}
+              </ul>
+            </div>
+          </div>
         </section>
 
-        {/* 4. Nigiri Section — image right */}
+        {/* 5. Nigiri Section — image right */}
         <section className="bg-bg-raised border-b border-accent/35">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-20 px-6">
-            {/* Items */}
+          {/* Desktop: text left + image right (unchanged) */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 lg:gap-16 items-center py-20 px-6 max-w-6xl mx-auto">
             <div className="order-2 lg:order-1">
               <motion.p
                 variants={fadeUp}
@@ -243,7 +390,6 @@ export default function MenuPage() {
               </motion.ul>
             </div>
 
-            {/* Image */}
             <motion.div
               variants={fadeLeft}
               initial="hidden"
@@ -263,120 +409,38 @@ export default function MenuPage() {
               </picture>
             </motion.div>
           </div>
-        </section>
 
-        {/* 5. Bowls & Sides */}
-        <section className="bg-bg-deepest border-b border-accent/35">
-          <div className="max-w-4xl mx-auto py-20 px-6">
-            <div className="text-center mb-14">
-              <motion.p
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
-                className="text-xs font-sans tracking-[0.25em] uppercase text-text-secondary mb-2"
-              >
-                {t('menuPage.moreFromKitchen')}
-              </motion.p>
-              <motion.h2
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
-                className="font-serif text-3xl lg:text-4xl text-text-primary"
-              >
-                {t('menuPage.bowlsAndSides')}
-              </motion.h2>
+          {/* Mobile: full-width stacked */}
+          <div className="md:hidden">
+            <div className="aspect-[4/3] overflow-hidden">
+              <picture>
+                <source type="image/avif" srcSet={nigiriImg.sources.join(', ')} />
+                <source type="image/webp" srcSet={nigiriImg.fallbackSources.join(', ')} />
+                <img
+                  src={nigiriImg.default}
+                  alt={t('menuPage.altNigiriSelection')}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </div>
-
-            {/* Desktop two-column */}
-            <div className="hidden md:grid md:grid-cols-[1fr_1px_1fr] gap-0">
-              <div className="pr-12">
-                <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-text-secondary mb-6">
-                  {t('menuPage.bowls')}
-                </p>
-                <motion.ul
-                  variants={staggerContainer}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.15 }}
-                  className="space-y-3"
-                >
-                  {bowls.items.map((item) => (
-                    <MenuItemRow
-                      key={item.name}
-                      name={item.name}
-                      formattedPrice={item.formattedPrice}
-                    />
-                  ))}
-                </motion.ul>
-              </div>
-              <div className="bg-accent/30" />
-              <div className="pl-12">
-                <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-text-secondary mb-6">
-                  {t('menuPage.sides')}
-                </p>
-                <motion.ul
-                  variants={staggerContainer}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.15 }}
-                  className="space-y-3"
-                >
-                  {sides.items.map((item) => (
-                    <MenuItemRow
-                      key={item.name}
-                      name={item.name}
-                      formattedPrice={item.formattedPrice}
-                    />
-                  ))}
-                </motion.ul>
-              </div>
-            </div>
-
-            {/* Mobile single-column */}
-            <div className="md:hidden space-y-10">
-              <div>
-                <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-text-secondary mb-6">
-                  {t('menuPage.bowls')}
-                </p>
-                <motion.ul
-                  variants={staggerContainer}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.15 }}
-                  className="space-y-3"
-                >
-                  {bowls.items.map((item) => (
-                    <MenuItemRow
-                      key={item.name}
-                      name={item.name}
-                      formattedPrice={item.formattedPrice}
-                    />
-                  ))}
-                </motion.ul>
-              </div>
-              <hr className="border-white/8" />
-              <div>
-                <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-text-secondary mb-6">
-                  {t('menuPage.sides')}
-                </p>
-                <motion.ul
-                  variants={staggerContainer}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.15 }}
-                  className="space-y-3"
-                >
-                  {sides.items.map((item) => (
-                    <MenuItemRow
-                      key={item.name}
-                      name={item.name}
-                      formattedPrice={item.formattedPrice}
-                    />
-                  ))}
-                </motion.ul>
-              </div>
+            <div className="px-6 py-12">
+              <p className="text-xs font-sans tracking-[0.25em] uppercase text-accent mb-2">
+                {t('menuPage.nigiriEyebrow')}
+              </p>
+              <h2 className="font-serif text-2xl text-text-primary mb-2">
+                {t('menuPage.nigiriTitle')}
+              </h2>
+              <div className="w-8 border-t border-accent mb-6" />
+              <ul className="space-y-3">
+                {nigiri.items.map((item) => (
+                  <MenuItemRow
+                    key={item.name}
+                    name={item.name}
+                    formattedPrice={item.formattedPrice}
+                  />
+                ))}
+              </ul>
             </div>
           </div>
         </section>

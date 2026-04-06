@@ -24,7 +24,7 @@ export default function MenuItemRow({
           {name}
         </span>
         <span className="flex-1 border-b border-dotted border-white/18" />
-        <span className="font-sans text-accent text-sm whitespace-nowrap shrink-0">
+        <span className="font-sans text-accent text-sm whitespace-nowrap shrink-0 text-right">
           {formattedPrice}
         </span>
       </div>

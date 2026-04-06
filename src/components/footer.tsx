@@ -7,7 +7,7 @@ export default function Footer() {
   const { t } = useTranslation('common');
   return (
     <footer className="bg-bg-raised border-t border-white/6">
-      <div className="max-w-6xl mx-auto px-6 py-14 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="max-w-6xl mx-auto px-6 py-14 md:py-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-6">
         {/* Brand */}
         <div className="flex items-center gap-3">
           <img
@@ -28,7 +28,7 @@ export default function Footer() {
         </p>
 
         {/* Social + copyright */}
-        <div className="flex flex-col items-center md:items-end gap-3">
+        <div className="flex flex-col items-center md:items-end gap-2 md:gap-3 w-full md:w-auto">
           <a
             href={contact.instagram}
             target="_blank"
@@ -53,7 +53,7 @@ export default function Footer() {
               <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
             </svg>
           </a>
-          <p className="text-text-muted text-xs font-sans border-t border-white/5 pt-2 mt-1">
+          <p className="text-text-muted text-xs font-sans border-t border-white/5 pt-2 mt-1 md:mt-2">
             © {new Date().getFullYear()} Sumi. {t('footer.allRightsReserved')}
           </p>
         </div>

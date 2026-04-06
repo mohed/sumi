@@ -44,7 +44,8 @@ export default function OpeningHours() {
   return (
     <section className="bg-bg-raised border-b border-accent/35">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex">
+        {/* Desktop: horizontal flex row of cards */}
+        <div className="hidden md:flex">
           {cards.map(({ days, hours }, index) => {
             const isReservationOnly = reservationOnlyDays.includes(days);
             const [firstSlot, secondSlot] = hours.split(', ');
@@ -101,6 +102,31 @@ export default function OpeningHours() {
                   </p>
                 </div>
               </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Mobile: compact two-column list */}
+        <div className="md:hidden py-6">
+          {cards.map(({ days, hours }, index) => {
+            const dayLabel = days === 'monThu' ? t('visit.monThu') : t(dayKeyMap[days]);
+            return (
+              <div
+                key={days}
+                className="flex items-baseline justify-between py-3 last:pb-0 border-b border-accent/20 last:border-b-0"
+              >
+                <span className="text-sm font-sans font-medium text-text-primary tracking-[0.06em]">
+                  {dayLabel}
+                </span>
+                <span className="text-sm font-sans text-text-secondary tabular-nums text-right">
+                  {hours.split(', ').map((slot, i) => (
+                    <span key={i}>
+                      {i > 0 && <span className="text-text-muted mx-1">·</span>}
+                      {formatRange(slot)}
+                    </span>
+                  ))}
+                </span>
+              </div>
             );
           })}
         </div>
