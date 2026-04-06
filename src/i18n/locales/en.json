@@ -1,0 +1,37 @@
+{
+  "navbar": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "ourCraft": "Our craft",
+    "viewMenu": "View menu",
+    "reserve": "Reserve"
+  },
+  "hero": {
+    "scrollDown": "Scroll down"
+  },
+  "menu": {
+    "eyebrow": "From the kitchen",
+    "viewFullMenu": "View full menu",
+    "reserveTable": "Reserve a table",
+    "popular": "Popular",
+    "recommended": "Recommended",
+    "signature": "Signature"
+  },
+  "reserve": {
+    "reserveTable": "Reserve a table"
+  },
+  "visit": {
+    "title": "Visit us",
+    "address": "Address",
+    "openingHours": "Opening hours",
+    "closed": "Closed",
+    "findUs": "Find Omakase Gävle"
+  },
+  "footer": {
+    "instagram": "Instagram",
+    "allRightsReserved": "All rights reserved."
+  },
+  "a11y": {
+    "logo": "Sumi home"
+  }
+}

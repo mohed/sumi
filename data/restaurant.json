@@ -1,0 +1,554 @@
+{
+  "meta": {
+    "project": "samuraj-sushi",
+    "locale": "sv-SE",
+    "currency": "SEK",
+    "generatedAt": "2026-04-06",
+    "notes": [
+      "Concept restaurant data for a SamurajStudio starter-tier showcase site.",
+      "Location and formatting are based on researched central Gävle address patterns and local sushi opening-hour norms.",
+      "Menu items, phone number, and brand are fictional but intentionally realistic for the market."
+    ],
+    "research": {
+      "cityCenter": [
+        {
+          "label": "Stortorget central Gävle",
+          "source": "https://www.gavle.se/kultur-och-fritid/natur-och-friluftsliv/parker-och-natur/lekplatser/stortorget/",
+          "note": "Stortorget 1, 803 20 Gävle confirms central city postal area."
+        },
+        {
+          "label": "Norra Kungsgatan address range",
+          "source": "https://www.hitta.se/g%C3%A4vleborgs+l%C3%A4n/g%C3%A4vle/norra+kungsgatan/omr%C3%A5de/3002688100",
+          "note": "Norra Kungsgatan 1-45 exists in central Gävle, with 803 20 / 803 23 postal codes."
+        },
+        {
+          "label": "Gävle City central reference",
+          "source": "https://gavlecity.se/om-gavle-city/",
+          "note": "Norra Kungsgatan 1, 803 20 Gävle used as city-center reference point."
+        }
+      ],
+      "openingHours": [
+        {
+          "label": "Sushi City Gävle",
+          "source": "https://sushicity.se",
+          "note": "Typical local sushi hours in Gävle: Mon-Fri 11-20, Sat 12-20, Sun 13-20."
+        },
+        {
+          "label": "Sushi Yama Gävle Gallerian Nian",
+          "source": "https://sushiyama.se/restaurants/gavle-gallerian-nian/",
+          "note": "Mall-based sushi opening times in Gävle often run 10-20/21."
+        },
+        {
+          "label": "Tripadvisor listing for Sushi City Centralstation",
+          "source": "https://www.tripadvisor.se/Restaurant_Review-g189825-d15554042-Reviews-Sushi_CITY_Centralstation_Sushi_Gavle-Gavle_Gavleborg_County_Midnight_Sun_Coast.html",
+          "note": "Confirms local pattern of late lunch start and 20:00 close on Sundays."
+        }
+      ]
+    }
+  },
+  "restaurant": {
+    "name": "Omakase Gävle",
+    "tagline": "Handcrafted sushi in a calm, modern setting.",
+    "description": "A small sushi restaurant in central Gävle focused on clean flavours, carefully selected ingredients, and a quiet evening experience.",
+    "concept": "Premium yet approachable neighbourhood restaurant with Japanese-inspired minimalism.",
+    "priceLevel": "$$$",
+    "cuisine": [
+      "Sushi",
+      "Japanese",
+      "Omakase"
+    ]
+  },
+  "branding": {
+    "primaryColor": "#0B0B0D",
+    "secondaryColor": "#15181C",
+    "accentColor": "#D4A796",
+    "textColor": "#F5F1EA",
+    "mutedTextColor": "#9CA3AF",
+    "fonts": {
+      "heading": "Playfair Display",
+      "body": "Inter"
+    }
+  },
+  "contact": {
+    "phone": "026-280 14 20",
+    "email": "booking@omakasegavle.se",
+    "website": "https://omakasegavle.se",
+    "instagram": "https://instagram.com/omakasegavle"
+  },
+  "location": {
+    "street": "Norra Kungsgatan 7A",
+    "postalCode": "803 20",
+    "city": "Gävle",
+    "country": "Sweden",
+    "displayAddress": "Norra Kungsgatan 7A, 803 20 Gävle",
+    "area": "Gävle City / near Stortorget",
+    "coordinates": {
+      "lat": 60.6745,
+      "lng": 17.1448
+    },
+    "mapLabel": "Find Omakase Gävle"
+  },
+  "openingHours": {
+    "timezone": "Europe/Stockholm",
+    "display": [
+      {
+        "days": "Monday",
+        "hours": "11:30–13:30, 16:30–21:00"
+      },
+      {
+        "days": "Tuesday",
+        "hours": "11:30–13:30, 16:30–21:00"
+      },
+      {
+        "days": "Wednesday",
+        "hours": "11:30–13:30, 16:30–21:00"
+      },
+      {
+        "days": "Thursday",
+        "hours": "11:30–13:30, 16:30–21:00"
+      },
+      {
+        "days": "Friday",
+        "hours": "11:30–13:30, 16:30–22:00"
+      },
+      {
+        "days": "Saturday",
+        "hours": "13:00–16:30, 18:00–22:00"
+      },
+      {
+        "days": "Sunday",
+        "hours": "13:00–16:30, 17:00–20:00"
+      }
+    ],
+    "structured": {
+      "monday": [],
+      "tuesday": [
+        {
+          "open": "11:30",
+          "close": "14:30"
+        },
+        {
+          "open": "16:30",
+          "close": "21:30"
+        }
+      ],
+      "wednesday": [
+        {
+          "open": "11:30",
+          "close": "14:30"
+        },
+        {
+          "open": "16:30",
+          "close": "21:30"
+        }
+      ],
+      "thursday": [
+        {
+          "open": "11:30",
+          "close": "14:30"
+        },
+        {
+          "open": "16:30",
+          "close": "21:30"
+        }
+      ],
+      "friday": [
+        {
+          "open": "11:30",
+          "close": "14:30"
+        },
+        {
+          "open": "16:30",
+          "close": "22:00"
+        }
+      ],
+      "saturday": [
+        {
+          "open": "13:00",
+          "close": "22:00"
+        }
+      ],
+      "sunday": [
+        {
+          "open": "13:00",
+          "close": "20:00"
+        }
+      ]
+    }
+  },
+  "hero": {
+    "eyebrow": "Sushi in central Gävle",
+    "headline": "Carefully prepared sushi for quiet evenings in the city.",
+    "subheadline": "From signature rolls to omakase sets — served in a warm, understated setting near Stortorget.",
+    "primaryCta": {
+      "label": "View menu",
+      "href": "#menu"
+    },
+    "secondaryCta": {
+      "label": "Reserve a table",
+      "href": "#contact"
+    }
+  },
+  "about": {
+    "title": "Our craft",
+    "intro": "We believe in a quieter way of eating sushi — with care in every detail, from the temperature of the rice to the cut of the fish.",
+    "body": [
+      "At Omakase Gävle, we work with a small, focused menu where every dish has room to breathe. The menu is built for both a quick lunch and a longer dinner in good company.",
+      "The atmosphere is warm and stripped back, inspired by modern Japanese minimalism. The pace is a little slower, the flavours cleaner, the experience more considered.",
+      "We serve classic nigiri, signature rolls, and an omakase set for those who want to let the kitchen choose the evening's highlights."
+    ]
+  },
+  "menu": {
+    "title": "From the kitchen",
+    "subtitle": "Three favourites that set the tone for the menu.",
+    "currencySymbol": "kr",
+    "featuredItems": [
+      {
+        "id": "signature-rolls",
+        "name": "Signature Rolls",
+        "category": "Maki",
+        "description": "Salmon, avocado, cucumber, chilli mayo, crispy onion, and trout roe.",
+        "price": 149,
+        "formattedPrice": "149 kr",
+        "image": "/images/menu/menu-card-rolls-768.avif",
+        "badge": "Popular"
+      },
+      {
+        "id": "chef-selection",
+        "name": "Chef's Selection Nigiri",
+        "category": "Nigiri",
+        "description": "Eight pieces of nigiri with salmon, tuna, prawn, and the chef's toppings of the day.",
+        "price": 189,
+        "formattedPrice": "189 kr",
+        "image": "/images/menu/menu-card-nigiri-768.avif",
+        "badge": "Recommended"
+      },
+      {
+        "id": "omakase-set",
+        "name": "Omakase Set",
+        "category": "Omakase",
+        "description": "A curated set of nigiri, maki, and seasonal selections — perfect to share or enjoy solo.",
+        "price": 249,
+        "formattedPrice": "249 kr",
+        "image": "/images/menu/menu-card-omakase-768.avif",
+        "badge": "Signature"
+      }
+    ],
+    "sections": [
+      {
+        "id": "recommended",
+        "title": "Recommended",
+        "items": [
+          {
+            "name": "Signature Rolls",
+            "price": 149,
+            "formattedPrice": "149 kr"
+          },
+          {
+            "name": "Chef's Selection Nigiri",
+            "price": 189,
+            "formattedPrice": "189 kr"
+          },
+          {
+            "name": "Omakase Set",
+            "price": 249,
+            "formattedPrice": "249 kr"
+          }
+        ]
+      },
+      {
+        "id": "nigiri",
+        "title": "Nigiri",
+        "items": [
+          {
+            "name": "Tamago Nigiri (4 pcs)",
+            "price": 65,
+            "formattedPrice": "65 kr"
+          },
+          {
+            "name": "Salmon Nigiri (4 pcs)",
+            "price": 79,
+            "formattedPrice": "79 kr"
+          },
+          {
+            "name": "Ebi Nigiri (4 pcs)",
+            "price": 89,
+            "formattedPrice": "89 kr"
+          },
+          {
+            "name": "Tuna Nigiri (4 pcs)",
+            "price": 95,
+            "formattedPrice": "95 kr"
+          },
+          {
+            "name": "Yellowtail Nigiri (4 pcs)",
+            "price": 115,
+            "formattedPrice": "115 kr"
+          },
+          {
+            "name": "Ikura Nigiri (2 pcs)",
+            "price": 125,
+            "formattedPrice": "125 kr"
+          },
+          {
+            "name": "Samurai Nigiri",
+            "price": 129,
+            "formattedPrice": "129 kr"
+          },
+          {
+            "name": "Unagi Nigiri (2 pcs)",
+            "price": 145,
+            "formattedPrice": "145 kr"
+          },
+          {
+            "name": "Mixed Nigiri (8 pcs)",
+            "price": 169,
+            "formattedPrice": "169 kr"
+          }
+        ]
+      },
+      {
+        "id": "bowls",
+        "title": "Bowls",
+        "items": [
+          {
+            "name": "Tempura Asparagus Bowl",
+            "price": 155,
+            "formattedPrice": "155 kr"
+          },
+          {
+            "name": "Tempura Chicken Bowl",
+            "price": 165,
+            "formattedPrice": "165 kr"
+          },
+          {
+            "name": "Nordic Salmon Bowl",
+            "price": 169,
+            "formattedPrice": "169 kr"
+          },
+          {
+            "name": "Tuna Bowl",
+            "price": 175,
+            "formattedPrice": "175 kr"
+          },
+          {
+            "name": "Flamed Salmon Bowl",
+            "price": 179,
+            "formattedPrice": "179 kr"
+          },
+          {
+            "name": "Sashimi Bowl",
+            "price": 195,
+            "formattedPrice": "195 kr"
+          }
+        ]
+      },
+      {
+        "id": "sides",
+        "title": "Sides",
+        "items": [
+          {
+            "name": "Miso Soup",
+            "price": 35,
+            "formattedPrice": "35 kr"
+          },
+          {
+            "name": "Edamame Sea Salt",
+            "price": 45,
+            "formattedPrice": "45 kr"
+          },
+          {
+            "name": "Spring Rolls",
+            "price": 49,
+            "formattedPrice": "49 kr"
+          },
+          {
+            "name": "Asian Cucumber Salad",
+            "price": 49,
+            "formattedPrice": "49 kr"
+          },
+          {
+            "name": "Crispy Dumplings (3 pcs)",
+            "price": 55,
+            "formattedPrice": "55 kr"
+          },
+          {
+            "name": "Tempura Shrimps",
+            "price": 65,
+            "formattedPrice": "65 kr"
+          }
+        ]
+      }
+    ]
+  },
+  "reservationCta": {
+    "title": "Reserve a quiet evening in central Gävle",
+    "text": "Perfect for a quiet dinner, a spontaneous weekday visit, or an evening where the food takes centre stage.",
+    "button": {
+      "label": "Reserve a table",
+      "href": "tel:0262801420"
+    }
+  },
+  "visit": {
+    "title": "Visit us",
+    "mapLink": "https://maps.google.com/?q=Norra+Kungsgatan+7A,+803+20+G%C3%A4vle",
+    "parkingNote": "A short walk from Stortorget and central Gävle's parking areas.",
+    "transitNote": "Close to the city centre and within easy walking distance of public transport."
+  },
+  "seo": {
+    "title": "Omakase Gävle | Sushi in central Gävle",
+    "description": "A modern sushi restaurant in central Gävle with signature rolls, nigiri, and omakase sets in a calm, understated setting.",
+    "keywords": [
+      "sushi gavle",
+      "restaurant gavle",
+      "omakase gavle",
+      "japanese restaurant gavle",
+      "dinner gavle"
+    ]
+  },
+  "assets": {
+    "manifest": "/data/image-manifest.json",
+    "logo": {
+      "wordmark": "Sumi",
+      "mark": "/brand/sumi-mark-64.png",
+      "markSmall": "/brand/sumi-mark-32.png",
+      "markLarge": "/brand/sumi-mark-96.png",
+      "source": "/backup/source-icons/sumi-icon.png"
+    },
+    "favicon": {
+      "manifest": "/site.webmanifest",
+      "appleTouchIcon": "/icons/apple-touch-icon.png",
+      "icon192": "/icons/icon-192.png",
+      "icon512": "/icons/icon-512.png",
+      "favicon16": "/icons/favicon/favicon-16x16.png",
+      "favicon32": "/icons/favicon/favicon-32x32.png"
+    },
+    "hero": {
+      "default": "/images/hero/hero-1280.avif",
+      "fallback": "/images/hero/hero-1280.webp",
+      "sources": [
+        "/images/hero/hero-768.avif 768w",
+        "/images/hero/hero-1280.avif 1280w",
+        "/images/hero/hero-1920.avif 1920w"
+      ],
+      "fallbackSources": [
+        "/images/hero/hero-768.webp 768w",
+        "/images/hero/hero-1280.webp 1280w",
+        "/images/hero/hero-1920.webp 1920w"
+      ],
+      "original": "/backup/source-images/5-maki-rolles-on-black-platter.png"
+    },
+    "about": {
+      "default": "/images/about/about-960.avif",
+      "fallback": "/images/about/about-960.webp",
+      "sources": [
+        "/images/about/about-640.avif 640w",
+        "/images/about/about-960.avif 960w",
+        "/images/about/about-1280.avif 1280w"
+      ],
+      "fallbackSources": [
+        "/images/about/about-640.webp 640w",
+        "/images/about/about-960.webp 960w",
+        "/images/about/about-1280.webp 1280w"
+      ],
+      "original": "/backup/source-images/assorted-sushi-on-marble-platter-wood-table.png"
+    },
+    "menuBanner": {
+      "default": "/images/menu/menu-banner-1280.avif",
+      "fallback": "/images/menu/menu-banner-1280.webp",
+      "sources": [
+        "/images/menu/menu-banner-768.avif 768w",
+        "/images/menu/menu-banner-1280.avif 1280w",
+        "/images/menu/menu-banner-1600.avif 1600w"
+      ],
+      "fallbackSources": [
+        "/images/menu/menu-banner-768.webp 768w",
+        "/images/menu/menu-banner-1280.webp 1280w",
+        "/images/menu/menu-banner-1600.webp 1600w"
+      ],
+      "original": "/backup/source-images/tuna-salmon-ika-nigiri-round-platter.png"
+    },
+    "featuredMenu": [
+      {
+        "id": "signature-rolls",
+        "default": "/images/menu/menu-card-rolls-768.avif",
+        "fallback": "/images/menu/menu-card-rolls-768.webp",
+        "sources": [
+          "/images/menu/menu-card-rolls-480.avif 480w",
+          "/images/menu/menu-card-rolls-768.avif 768w",
+          "/images/menu/menu-card-rolls-960.avif 960w"
+        ],
+        "fallbackSources": [
+          "/images/menu/menu-card-rolls-480.webp 480w",
+          "/images/menu/menu-card-rolls-768.webp 768w",
+          "/images/menu/menu-card-rolls-960.webp 960w"
+        ],
+        "original": "/backup/source-images/vibrant-salmon-sushi-rolls-on-dark-wood.png"
+      },
+      {
+        "id": "chef-selection",
+        "default": "/images/menu/menu-card-nigiri-768.avif",
+        "fallback": "/images/menu/menu-card-nigiri-768.webp",
+        "sources": [
+          "/images/menu/menu-card-nigiri-480.avif 480w",
+          "/images/menu/menu-card-nigiri-768.avif 768w",
+          "/images/menu/menu-card-nigiri-960.avif 960w"
+        ],
+        "fallbackSources": [
+          "/images/menu/menu-card-nigiri-480.webp 480w",
+          "/images/menu/menu-card-nigiri-768.webp 768w",
+          "/images/menu/menu-card-nigiri-960.webp 960w"
+        ],
+        "original": "/backup/source-images/nigri-closeup-in-varied-plate.png"
+      },
+      {
+        "id": "omakase-set",
+        "default": "/images/menu/menu-card-omakase-768.avif",
+        "fallback": "/images/menu/menu-card-omakase-768.webp",
+        "sources": [
+          "/images/menu/menu-card-omakase-480.avif 480w",
+          "/images/menu/menu-card-omakase-768.avif 768w",
+          "/images/menu/menu-card-omakase-960.avif 960w"
+        ],
+        "fallbackSources": [
+          "/images/menu/menu-card-omakase-480.webp 480w",
+          "/images/menu/menu-card-omakase-768.webp 768w",
+          "/images/menu/menu-card-omakase-960.webp 960w"
+        ],
+        "original": "/backup/source-images/omakase-set-assorted-rectangular-plate.png"
+      }
+    ],
+    "menuModal": {
+      "portrait": {
+        "default": "/images/menu-modal/menu-modal-800.avif",
+        "fallback": "/images/menu-modal/menu-modal-800.webp",
+        "sources": [
+          "/images/menu-modal/menu-modal-400.avif 400w",
+          "/images/menu-modal/menu-modal-600.avif 600w",
+          "/images/menu-modal/menu-modal-800.avif 800w"
+        ],
+        "fallbackSources": [
+          "/images/menu-modal/menu-modal-400.webp 400w",
+          "/images/menu-modal/menu-modal-600.webp 600w",
+          "/images/menu-modal/menu-modal-800.webp 800w"
+        ],
+        "original": "/backup/source-images/menu-leather-background.png"
+      },
+      "wide": {
+        "default": "/images/menu-modal/menu-modal-wide-1200.avif",
+        "fallback": "/images/menu-modal/menu-modal-wide-1200.webp",
+        "sources": [
+          "/images/menu-modal/menu-modal-wide-600.avif 600w",
+          "/images/menu-modal/menu-modal-wide-800.avif 800w",
+          "/images/menu-modal/menu-modal-wide-1200.avif 1200w"
+        ],
+        "fallbackSources": [
+          "/images/menu-modal/menu-modal-wide-600.webp 600w",
+          "/images/menu-modal/menu-modal-wide-800.webp 800w",
+          "/images/menu-modal/menu-modal-wide-1200.webp 1200w"
+        ],
+        "original": "/backup/source-images/menu-leather-background-horizontal.png"
+      }
+    }
+  }
+}

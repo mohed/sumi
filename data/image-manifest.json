@@ -1,0 +1,273 @@
+{
+  "generatedWith": "sharp-cli",
+  "generatedAt": "2026-04-06",
+  "publicStructure": {
+    "productionImages": "/images",
+    "brandAssets": "/brand",
+    "icons": "/icons",
+    "backup": "/backup"
+  },
+  "strategy": {
+    "formats": [
+      "avif",
+      "webp"
+    ],
+    "notes": [
+      "AVIF is the preferred source where browser support is available.",
+      "WebP is the default fallback format.",
+      "Original PNG files are archived under /public/backup and should not be used directly in production page sections.",
+      "Widths were chosen per layout role rather than applying one generic size to every image."
+    ]
+  },
+  "images": {
+    "hero": {
+      "source": "/backup/source-images/5-maki-rolles-on-black-platter.png",
+      "role": "Full-bleed hero background",
+      "preferredFormat": "avif",
+      "fallbackFormat": "webp",
+      "sizes": [
+        {
+          "width": 768,
+          "avif": "/images/hero/hero-768.avif",
+          "webp": "/images/hero/hero-768.webp"
+        },
+        {
+          "width": 1280,
+          "avif": "/images/hero/hero-1280.avif",
+          "webp": "/images/hero/hero-1280.webp"
+        },
+        {
+          "width": 1920,
+          "avif": "/images/hero/hero-1920.avif",
+          "webp": "/images/hero/hero-1920.webp"
+        }
+      ],
+      "default": {
+        "avif": "/images/hero/hero-1280.avif",
+        "webp": "/images/hero/hero-1280.webp"
+      }
+    },
+    "about": {
+      "source": "/backup/source-images/assorted-sushi-on-marble-platter-wood-table.png",
+      "role": "Editorial two-column content image",
+      "preferredFormat": "avif",
+      "fallbackFormat": "webp",
+      "sizes": [
+        {
+          "width": 640,
+          "avif": "/images/about/about-640.avif",
+          "webp": "/images/about/about-640.webp"
+        },
+        {
+          "width": 960,
+          "avif": "/images/about/about-960.avif",
+          "webp": "/images/about/about-960.webp"
+        },
+        {
+          "width": 1280,
+          "avif": "/images/about/about-1280.avif",
+          "webp": "/images/about/about-1280.webp"
+        }
+      ],
+      "default": {
+        "avif": "/images/about/about-960.avif",
+        "webp": "/images/about/about-960.webp"
+      }
+    },
+    "menuBanner": {
+      "source": "/backup/source-images/tuna-salmon-ika-nigiri-round-platter.png",
+      "role": "Wide menu section banner",
+      "preferredFormat": "avif",
+      "fallbackFormat": "webp",
+      "sizes": [
+        {
+          "width": 768,
+          "avif": "/images/menu/menu-banner-768.avif",
+          "webp": "/images/menu/menu-banner-768.webp"
+        },
+        {
+          "width": 1280,
+          "avif": "/images/menu/menu-banner-1280.avif",
+          "webp": "/images/menu/menu-banner-1280.webp"
+        },
+        {
+          "width": 1600,
+          "avif": "/images/menu/menu-banner-1600.avif",
+          "webp": "/images/menu/menu-banner-1600.webp"
+        }
+      ],
+      "default": {
+        "avif": "/images/menu/menu-banner-1280.avif",
+        "webp": "/images/menu/menu-banner-1280.webp"
+      }
+    },
+    "menuCards": {
+      "rolls": {
+        "source": "/backup/source-images/vibrant-salmon-sushi-rolls-on-dark-wood.png",
+        "role": "Menu card image",
+        "sizes": [
+          {
+            "width": 480,
+            "avif": "/images/menu/menu-card-rolls-480.avif",
+            "webp": "/images/menu/menu-card-rolls-480.webp"
+          },
+          {
+            "width": 768,
+            "avif": "/images/menu/menu-card-rolls-768.avif",
+            "webp": "/images/menu/menu-card-rolls-768.webp"
+          },
+          {
+            "width": 960,
+            "avif": "/images/menu/menu-card-rolls-960.avif",
+            "webp": "/images/menu/menu-card-rolls-960.webp"
+          }
+        ],
+        "default": {
+          "avif": "/images/menu/menu-card-rolls-768.avif",
+          "webp": "/images/menu/menu-card-rolls-768.webp"
+        }
+      },
+      "nigiri": {
+        "source": "/backup/source-images/nigri-closeup-in-varied-plate.png",
+        "role": "Menu card image",
+        "sizes": [
+          {
+            "width": 480,
+            "avif": "/images/menu/menu-card-nigiri-480.avif",
+            "webp": "/images/menu/menu-card-nigiri-480.webp"
+          },
+          {
+            "width": 768,
+            "avif": "/images/menu/menu-card-nigiri-768.avif",
+            "webp": "/images/menu/menu-card-nigiri-768.webp"
+          },
+          {
+            "width": 960,
+            "avif": "/images/menu/menu-card-nigiri-960.avif",
+            "webp": "/images/menu/menu-card-nigiri-960.webp"
+          }
+        ],
+        "default": {
+          "avif": "/images/menu/menu-card-nigiri-768.avif",
+          "webp": "/images/menu/menu-card-nigiri-768.webp"
+        }
+      },
+      "omakase": {
+        "source": "/backup/source-images/omakase-set-assorted-rectangular-plate.png",
+        "role": "Premium anchor menu card image",
+        "sizes": [
+          {
+            "width": 480,
+            "avif": "/images/menu/menu-card-omakase-480.avif",
+            "webp": "/images/menu/menu-card-omakase-480.webp"
+          },
+          {
+            "width": 768,
+            "avif": "/images/menu/menu-card-omakase-768.avif",
+            "webp": "/images/menu/menu-card-omakase-768.webp"
+          },
+          {
+            "width": 960,
+            "avif": "/images/menu/menu-card-omakase-960.avif",
+            "webp": "/images/menu/menu-card-omakase-960.webp"
+          }
+        ],
+        "default": {
+          "avif": "/images/menu/menu-card-omakase-768.avif",
+          "webp": "/images/menu/menu-card-omakase-768.webp"
+        }
+      }
+    }
+  },
+  "branding": {
+    "logoMark": {
+      "source": "/backup/source-icons/sumi-icon.png",
+      "default": "/brand/sumi-mark-64.png",
+      "sizes": {
+        "32": "/brand/sumi-mark-32.png",
+        "48": "/brand/sumi-mark-48.png",
+        "64": "/brand/sumi-mark-64.png",
+        "96": "/brand/sumi-mark-96.png",
+        "128": "/brand/sumi-mark-128.png",
+        "160": "/brand/sumi-mark-160.png"
+      },
+      "webpSizes": {
+        "32": "/brand/sumi-mark-32.webp",
+        "48": "/brand/sumi-mark-48.webp",
+        "64": "/brand/sumi-mark-64.webp",
+        "96": "/brand/sumi-mark-96.webp",
+        "128": "/brand/sumi-mark-128.webp",
+        "160": "/brand/sumi-mark-160.webp"
+      }
+    },
+    "favicon": {
+      "manifest": "/site.webmanifest",
+      "appleTouchIcon": "/icons/apple-touch-icon.png",
+      "sizes": {
+        "16": "/icons/favicon/favicon-16x16.png",
+        "32": "/icons/favicon/favicon-32x32.png",
+        "48": "/icons/favicon/favicon-48x48.png",
+        "192": "/icons/icon-192.png",
+        "512": "/icons/icon-512.png"
+      }
+    },
+    "menuModal": {
+      "portrait": {
+        "source": "/backup/source-images/menu-leather-background.png",
+        "role": "Portrait menu modal background (mobile/tablet)",
+        "preferredFormat": "avif",
+        "fallbackFormat": "webp",
+        "sizes": [
+          {
+            "width": 400,
+            "avif": "/images/menu-modal/menu-modal-400.avif",
+            "webp": "/images/menu-modal/menu-modal-400.webp"
+          },
+          {
+            "width": 600,
+            "avif": "/images/menu-modal/menu-modal-600.avif",
+            "webp": "/images/menu-modal/menu-modal-600.webp"
+          },
+          {
+            "width": 800,
+            "avif": "/images/menu-modal/menu-modal-800.avif",
+            "webp": "/images/menu-modal/menu-modal-800.webp",
+            "png": "/images/menu-modal/menu-modal-800.png"
+          }
+        ],
+        "default": {
+          "avif": "/images/menu-modal/menu-modal-800.avif",
+          "webp": "/images/menu-modal/menu-modal-800.webp"
+        }
+      },
+      "wide": {
+        "source": "/backup/source-images/menu-leather-background-horizontal.png",
+        "role": "Wide menu modal background (desktop)",
+        "preferredFormat": "avif",
+        "fallbackFormat": "webp",
+        "sizes": [
+          {
+            "width": 600,
+            "avif": "/images/menu-modal/menu-modal-wide-600.avif",
+            "webp": "/images/menu-modal/menu-modal-wide-600.webp"
+          },
+          {
+            "width": 800,
+            "avif": "/images/menu-modal/menu-modal-wide-800.avif",
+            "webp": "/images/menu-modal/menu-modal-wide-800.webp",
+            "png": "/images/menu-modal/menu-modal-wide-800.png"
+          },
+          {
+            "width": 1200,
+            "avif": "/images/menu-modal/menu-modal-wide-1200.avif",
+            "webp": "/images/menu-modal/menu-modal-wide-1200.webp"
+          }
+        ],
+        "default": {
+          "avif": "/images/menu-modal/menu-modal-wide-1200.avif",
+          "webp": "/images/menu-modal/menu-modal-wide-1200.webp"
+        }
+      }
+    }
+  }
+}

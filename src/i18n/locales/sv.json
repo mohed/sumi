@@ -1,0 +1,37 @@
+{
+  "navbar": {
+    "openMenu": "Öppna meny",
+    "closeMenu": "Stäng meny",
+    "ourCraft": "Vårt hantverk",
+    "viewMenu": "Se menyn",
+    "reserve": "Boka"
+  },
+  "hero": {
+    "scrollDown": "Skrolla ner"
+  },
+  "menu": {
+    "eyebrow": "Från köket",
+    "viewFullMenu": "Se hela menyn",
+    "reserveTable": "Boka bord",
+    "popular": "Populär",
+    "recommended": "Rekomenderad",
+    "signature": "Signatur"
+  },
+  "reserve": {
+    "reserveTable": "Boka bord"
+  },
+  "visit": {
+    "title": "Besök oss",
+    "address": "Adress",
+    "openingHours": "Öppettider",
+    "closed": "Stängt",
+    "findUs": "Hitta till Omakase Gävle"
+  },
+  "footer": {
+    "instagram": "Instagram",
+    "allRightsReserved": "Med ensamrätt."
+  },
+  "a11y": {
+    "logo": "Sumi startsida"
+  }
+}
