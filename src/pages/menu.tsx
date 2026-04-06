@@ -48,7 +48,7 @@ export default function MenuPage() {
   return (
     <>
       <Navbar />
-      <main className="md:pb-0 pb-16">
+      <main>
         {/* 1. Featured — Three signature dishes, first section */}
         <section className="bg-bg-deepest pt-28 pb-16 border-b border-accent/35">
           <div className="max-w-5xl mx-auto px-6">

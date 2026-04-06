@@ -19,7 +19,7 @@ export default function MenuFooter() {
 
   return (
     <footer className="bg-bg-deepest border-t border-accent/35">
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Desktop 3-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mb-12">
           {/* Col 1 — Visit */}

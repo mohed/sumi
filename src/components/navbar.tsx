@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
 import restaurantData from '@data/restaurant.json';
@@ -28,33 +29,47 @@ export default function Navbar() {
       )}
     >
       {/* Desktop Navbar */}
-      <div className="hidden md:flex max-w-6xl mx-auto px-6 h-16 items-center">
-        {/* Left — Logo */}
-        <Link to="/" className="flex items-center gap-2.5">
+      <div className="hidden md:grid max-w-6xl mx-auto px-6 h-16 items-center" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
+        {/* Left — nav links */}
+        <div className="flex items-center gap-8">
+          {[{ to: '/', label: t('navbar.home') }, { to: '/menu', label: t('navbar.viewMenu') }].map(({ to, label }) => {
+            const active = location.pathname === to;
+            return (
+              <Link
+                key={to}
+                to={to}
+                className={cn(
+                  'relative text-sm font-sans tracking-wider transition-colors duration-200 pb-0.5',
+                  active ? 'text-text-primary' : 'text-text-primary hover:text-accent'
+                )}
+              >
+                {label}
+                {active && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute bottom-0 left-0 right-0 h-px bg-accent"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Center — Logo mark + wordmark */}
+        <Link to="/" className="flex items-center justify-center gap-2.5">
           <img
             src="/brand/sumi-mark-64.png"
             alt={t('a11y.logo')}
-            width={28}
-            height={28}
-            className="w-7 h-7 object-contain"
+            width={36}
+            height={36}
+            className="w-9 h-9 object-contain"
           />
           <span className="font-serif text-xl text-text-primary tracking-[0.12em]">Sumi</span>
         </Link>
 
-        {/* Center — Navigation items */}
-        <div className="flex-1 flex items-center justify-center gap-8">
-          <Link
-            to="/"
-            className="text-sm font-sans text-text-primary hover:text-accent transition-colors duration-200 tracking-wider"
-          >
-            {t('navbar.home')}
-          </Link>
-          <Link
-            to="/menu"
-            className="text-sm font-sans text-text-primary hover:text-accent transition-colors duration-200 tracking-wider"
-          >
-            {t('navbar.viewMenu')}
-          </Link>
+        {/* Right — reserve link */}
+        <div className="flex items-center justify-end">
           <a
             href={reserveHref}
             className="text-sm font-sans text-text-primary hover:text-accent transition-colors duration-200 tracking-wider"
@@ -62,43 +77,56 @@ export default function Navbar() {
             {t('navbar.reserve')}
           </a>
         </div>
-
-        {/* Right — spacer for balance */}
-        <div className="w-24" />
       </div>
 
-      {/* Mobile Top Navbar */}
-      <div className="md:hidden flex items-center px-4 h-16 bg-bg-deepest/95 backdrop-blur-md border-b border-white/8">
-        {/* Logo — left */}
-        <Link to="/" className="flex items-center">
+      {/* Mobile Navbar */}
+      <div className="md:hidden grid h-16 px-4 items-center bg-bg-deepest/95 backdrop-blur-md border-b border-white/8" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
+        {/* Left — Home + Menu with underline */}
+        <div className="flex items-center gap-5">
+          {[{ to: '/', label: t('navbar.home') }, { to: '/menu', label: t('navbar.viewMenu') }].map(({ to, label }) => {
+            const active = location.pathname === to;
+            return (
+              <Link
+                key={to}
+                to={to}
+                className={cn(
+                  'relative text-sm font-sans tracking-wider transition-colors duration-200 pb-0.5',
+                  active ? 'text-text-primary' : 'text-text-primary hover:text-accent'
+                )}
+              >
+                {label}
+                {active && (
+                  <motion.span
+                    layoutId="nav-underline-mobile"
+                    className="absolute bottom-0 left-0 right-0 h-px bg-accent"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Center — Logo */}
+        <Link to="/" className="flex items-center justify-center gap-2">
           <img
             src="/brand/sumi-mark-64.png"
             alt={t('a11y.logo')}
-            width={28}
-            height={28}
-            className="w-7 h-7 object-contain"
+            width={36}
+            height={36}
+            className="w-9 h-9 object-contain"
           />
+          <span className="font-serif text-lg text-text-primary tracking-[0.12em]">Sumi</span>
         </Link>
 
-        {/* Reserve + Menu — right */}
-        <div className="flex items-center justify-end gap-4 ml-auto">
+        {/* Right — Reservations */}
+        <div className="flex items-center justify-end">
           <a
             href={reserveHref}
             className="text-sm font-sans text-text-primary hover:text-accent transition-colors duration-200"
           >
             {t('navbar.reserve')}
           </a>
-          <Link
-            to="/menu"
-            className={cn(
-              'text-sm font-sans transition-colors duration-200',
-              location.pathname === '/menu'
-                ? 'text-text-primary'
-                : 'text-text-primary hover:text-accent'
-            )}
-          >
-            {t('navbar.viewMenu')}
-          </Link>
         </div>
       </div>
     </nav>

@@ -27,7 +27,7 @@ export default function Hero() {
   const { t } = useTranslation('common');
 
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center justify-center border-b border-accent/35">
+    <section className="relative h-screen overflow-hidden flex items-center justify-center border-b border-accent/35">
       {/* Background image with slow zoom */}
       <div className="absolute inset-0 animate-hero-zoom">
         <picture>
@@ -46,7 +46,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-black/10" />
 
       {/* Content */}
-      <div className="relative z-10 px-6 text-center max-w-3xl mx-auto">
+      <div className="relative z-10 px-6 text-center max-w-3xl mx-auto" style={{ marginBottom: '20vh', marginTop: '20vh' }}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -55,22 +55,21 @@ export default function Hero() {
         >
           <motion.p
             variants={itemVariants}
-            className="text-xs font-sans tracking-[0.25em] uppercase text-text-secondary"
+            className="text-xs font-sans tracking-[0.25em] uppercase text-text-secondary [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
           >
             {t('homePage.heroEyebrow')}
           </motion.p>
 
           <motion.h1
             variants={itemVariants}
-            className="font-serif font-normal text-text-primary leading-tight tracking-tight
-                       text-[clamp(3rem,8vw,6rem)]"
+            className="font-serif font-normal text-text-primary leading-tight tracking-tight text-[clamp(2rem,5vw,4rem)] [text-shadow:0_2px_12px_rgba(0,0,0,0.9)]"
           >
             {t('homePage.heroHeadline')}
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="font-sans text-base sm:text-lg text-text-secondary max-w-lg leading-relaxed"
+            className="font-sans text-base sm:text-lg text-text-secondary max-w-lg leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]"
           >
             {t('homePage.heroSubheadline')}
           </motion.p>
