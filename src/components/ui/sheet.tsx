@@ -5,16 +5,41 @@ import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const Sheet = ({ children, ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) => (
-  <SheetPrimitive.Root
-    {...props}
-    onOpenChange={(open) => {
-      document.body.style.overflow = open ? 'hidden' : '';
-    }}
-  >
-    {children}
-  </SheetPrimitive.Root>
-)
+const Sheet = ({ children, ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) => {
+  const [open, setOpen] = React.useState(props.open ?? props.defaultOpen ?? false)
+  
+  // Track original overflow value and cleanup properly
+  React.useEffect(() => {
+    if (!open) return
+    
+    const original = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    
+    return () => {
+      document.body.style.overflow = original
+    }
+  }, [open])
+  
+  // Also cleanup on unmount in case component unmounts while open
+  React.useEffect(() => {
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
+
+  return (
+    <SheetPrimitive.Root
+      {...props}
+      open={open}
+      onOpenChange={(newOpen) => {
+        setOpen(newOpen)
+        props.onOpenChange?.(newOpen)
+      }}
+    >
+      {children}
+    </SheetPrimitive.Root>
+  )
+}
 
 const SheetTrigger = SheetPrimitive.Trigger
 

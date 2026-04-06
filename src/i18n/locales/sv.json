@@ -3,6 +3,7 @@
     "openMenu": "Öppna meny",
     "closeMenu": "Stäng meny",
     "ourCraft": "Vårt hantverk",
+    "home": "Hem",
     "viewMenu": "Se menyn",
     "reserve": "Boka",
     "switchLanguage": "Byt språk"
@@ -60,6 +61,8 @@
     "footerContact": "Kontakt",
     "footerMonThu": "Mån–Tor",
     "footerFriSat": "Fre–Lör",
+    "footerFri": "Fredag",
+    "footerSat": "Lördag",
     "footerSunday": "Söndag",
     "footerPhone": "telefon",
     "footerEmail": "e-post",

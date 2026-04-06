@@ -3,6 +3,7 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "ourCraft": "Our craft",
+    "home": "Home",
     "viewMenu": "View menu",
     "reserve": "Reserve",
     "switchLanguage": "Switch language"
@@ -60,6 +61,8 @@
     "footerContact": "Contact",
     "footerMonThu": "Mon–Thu",
     "footerFriSat": "Fri–Sat",
+    "footerFri": "Friday",
+    "footerSat": "Saturday",
     "footerSunday": "Sunday",
     "footerPhone": "phone",
     "footerEmail": "email",

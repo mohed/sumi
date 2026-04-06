@@ -50,6 +50,7 @@ export default function OpeningHours() {
             const isReservationOnly = reservationOnlyDays.includes(days);
             const [firstSlot, secondSlot] = hours.split(', ');
             const firstLabel = getSlotLabel(firstSlot, true, t);
+            const formattedSecond = secondSlot ? formatRange(secondSlot) : null;
             const dayLabel = days === 'monThu' ? t('visit.monThu') : t(dayKeyMap[days]);
 
             return (
@@ -80,27 +81,29 @@ export default function OpeningHours() {
                 </div>
 
                 {/* Second slot — Dinner */}
-                <div>
-                  <div className="flex items-center gap-1.5 mb-1">
-                    <Moon
-                      size={10}
-                      className={isReservationOnly ? 'text-accent shrink-0' : 'text-text-muted shrink-0'}
-                    />
-                    {isReservationOnly ? (
-                      <p className="text-[10px] font-sans uppercase tracking-wider">
-                        <span className="text-text-muted">{t('visit.dinner')}</span>
-                        <span className="text-accent"> · {t('visit.reservation')}</span>
-                      </p>
-                    ) : (
-                      <p className="text-[10px] font-sans uppercase tracking-wider text-text-muted">
-                        {t('visit.dinner')}
-                      </p>
-                    )}
+                {formattedSecond && (
+                  <div>
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <Moon
+                        size={10}
+                        className={isReservationOnly ? 'text-accent shrink-0' : 'text-text-muted shrink-0'}
+                      />
+                      {isReservationOnly ? (
+                        <p className="text-[10px] font-sans uppercase tracking-wider">
+                          <span className="text-text-muted">{t('visit.dinner')}</span>
+                          <span className="text-accent"> · {t('visit.reservation')}</span>
+                        </p>
+                      ) : (
+                        <p className="text-[10px] font-sans uppercase tracking-wider text-text-muted">
+                          {t('visit.dinner')}
+                        </p>
+                      )}
+                    </div>
+                    <p className="text-sm font-sans text-text-primary tabular-nums pl-[18px]">
+                      {formattedSecond}
+                    </p>
                   </div>
-                  <p className="text-sm font-sans text-text-primary tabular-nums pl-[18px]">
-                    {formatRange(secondSlot)}
-                  </p>
-                </div>
+                )}
               </motion.div>
             );
           })}

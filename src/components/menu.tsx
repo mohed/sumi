@@ -31,8 +31,11 @@ const featuredDisplayDescs: Record<string, string> = {
 export default function Menu() {
   const { t } = useTranslation('common');
 
+  const getItemImageData = (itemId: FeaturedItemId) => cardImageMap[itemId];
+
   return (
     <section id="menu" className="bg-bg-deepest border-b border-accent/35">
+      {/* Header & Desktop cards - constrained container */}
       <div className="max-w-6xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -41,13 +44,13 @@ export default function Menu() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-14"
         >
-          <h2 className="font-serif text-3xl lg:text-5xl text-text-primary font-normal tracking-tight mb-3">
+          <h2 className="font-serif text-4xl lg:text-7xl text-text-primary font-normal tracking-tight mb-3">
             {t('homePage.menuTitle')}
           </h2>
-          <p className="text-text-secondary text-base">{t('homePage.menuSubtitle')}</p>
+          <p className="text-text-secondary text-lg">{t('homePage.menuSubtitle')}</p>
         </motion.div>
 
-        {/* Card grid */}
+        {/* Desktop: Card grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -56,7 +59,7 @@ export default function Menu() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.1 } },
           }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+          className="hidden md:grid grid-cols-3 gap-6 mb-12"
         >
           {menu.featuredItems.map((item) => {
             const imageData = cardImageMap[item.id as FeaturedItemId];
@@ -73,8 +76,68 @@ export default function Menu() {
             );
           })}
         </motion.div>
+      </div>
 
-        {/* View Full Menu CTA */}
+      {/* Mobile: Full-width, full-bleed section outside container */}
+      <div className="md:hidden">
+        {menu.featuredItems.map((item, index) => {
+          const imageData = getItemImageData(item.id as FeaturedItemId);
+          const avifSrcset = imageData.sizes.map((s) => `${s.avif} ${s.width}w`).join(', ');
+          const webpSrcset = imageData.sizes.map((s) => `${s.webp} ${s.width}w`).join(', ');
+          // Alternating backgrounds: black (0, 2) → grey (1) → black
+          const bgClass = index % 2 === 1 ? 'bg-bg-raised' : 'bg-bg-deepest';
+          const hasBorder = index < menu.featuredItems.length - 1;
+          return (
+            <div key={item.id} className={`${bgClass} ${hasBorder ? 'border-b border-accent/35' : ''}`}>
+              {/* Image - truly full width, no parent constraints */}
+              <div className="w-full">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcSet={avifSrcset}
+                    sizes="100vw"
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet={webpSrcset}
+                    sizes="100vw"
+                  />
+                  <img
+                    src={imageData.default.avif}
+                    alt={t(featuredDisplayNames[item.id as FeaturedItemId])}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </picture>
+              </div>
+              {/* Text content - centered with max-width for readability */}
+              <div className="px-6 py-16 max-w-2xl mx-auto">
+                <p className="text-sm tracking-[0.25em] uppercase text-accent mb-2">
+                  {item.category}
+                </p>
+                <h3 className="font-serif text-3xl text-text-primary mb-2">
+                  {t(featuredDisplayNames[item.id as FeaturedItemId])}
+                </h3>
+                <div className="w-8 border-t border-accent mb-6" />
+                <p className="text-lg text-text-secondary mb-4">
+                  {t(featuredDisplayDescs[item.id as FeaturedItemId])}
+                </p>
+                <p className="font-serif text-3xl text-accent">
+                  {item.formattedPrice}
+                </p>
+                {item.badge && (
+                  <span className="inline-block mt-3 text-xs tracking-[0.15em] uppercase text-text-muted">
+                    {t(`menu.${item.badge.toLowerCase()}` as const)}
+                  </span>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* View Full Menu CTA - back in constrained container */}
+      <div className="max-w-6xl mx-auto px-6 pb-20">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

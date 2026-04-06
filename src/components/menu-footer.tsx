@@ -1,10 +1,21 @@
 import { useTranslation } from 'react-i18next';
+import i18n from '@/i18n';
 import restaurantData from '@data/restaurant.json';
 
-const { contact, assets } = restaurantData;
+const { contact, assets, location, openingHours } = restaurantData;
+const { consolidatedWeekdays } = openingHours.displayConfig;
+const fridayHours = openingHours.display.find((d) => d.days === 'Friday')?.hours ?? '';
+const saturdayHours = openingHours.display.find((d) => d.days === 'Saturday')?.hours ?? '';
+const sundayHours = openingHours.display.find((d) => d.days === 'Sunday')?.hours ?? '';
 
 export default function MenuFooter() {
-  const { t } = useTranslation('common');
+  const { t, i18n: i18nInstance } = useTranslation('common');
+  const activeLang = i18nInstance.language?.slice(0, 2) as 'en' | 'sv';
+
+  function toggleLanguage() {
+    const next = activeLang === 'en' ? 'sv' : 'en';
+    i18n.changeLanguage(next);
+  }
 
   return (
     <footer className="bg-bg-deepest border-t border-accent/35">
@@ -17,16 +28,19 @@ export default function MenuFooter() {
               {t('menuPage.footerVisit')}
             </p>
             <p className="text-text-secondary text-sm leading-relaxed mb-3">
-              Norra Kungsgatan 7A, 803 20 Gävle
+              {location.displayAddress}
             </p>
             <p className="text-text-muted text-xs leading-relaxed">
-              {t('menuPage.footerMonThu')} 11:30–13:30, 16:30–21:00
+              {t('menuPage.footerMonThu')} {consolidatedWeekdays.hours}
             </p>
             <p className="text-text-muted text-xs leading-relaxed">
-              {t('menuPage.footerFriSat')} 13:00–22:00
+              {t('menuPage.footerFri')} {fridayHours}
             </p>
             <p className="text-text-muted text-xs leading-relaxed">
-              {t('menuPage.footerSunday')} 13:00–20:00
+              {t('menuPage.footerSat')} {saturdayHours}
+            </p>
+            <p className="text-text-muted text-xs leading-relaxed">
+              {t('menuPage.footerSunday')} {sundayHours}
             </p>
           </div>
 
@@ -92,10 +106,17 @@ export default function MenuFooter() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/6 pt-6">
+        <div className="border-t border-white/6 pt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p className="text-text-muted text-xs font-sans text-center md:text-left">
             © {new Date().getFullYear()} Sumi. {t('footer.allRightsReserved')}
           </p>
+          <button
+            onClick={toggleLanguage}
+            className="text-text-muted text-xs font-sans uppercase tracking-[0.2em] hover:text-text-primary transition-colors duration-200 self-center md:self-auto"
+            aria-label={t('navbar.switchLanguage')}
+          >
+            {activeLang === 'sv' ? 'EN' : 'SV'}
+          </button>
         </div>
       </div>
     </footer>

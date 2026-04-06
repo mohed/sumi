@@ -1,4 +1,5 @@
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { staggerContainer, fadeUp, fadeLeft } from '@/lib/animations';
 import { useTranslation } from 'react-i18next';
 import Navbar from '../components/navbar';
 import MenuItemRow from '../components/menu-item-row';
@@ -37,22 +38,9 @@ const bowls   = menu.sections.find(s => s.id === 'bowls')!;
 const sides   = menu.sections.find(s => s.id === 'sides')!;
 const banner  = assets.menuBanner;
 const featuredItems = menu.featuredItems;
-const [rollsImg, nigiriImg] = assets.featuredMenu;
+const rollsImg = assets.featuredMenu?.[0];
+const nigiriImg = assets.featuredMenu?.[1];
 
-const staggerContainer: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.06 } },
-};
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
-const fadeLeft: Variants = {
-  hidden: { opacity: 0, x: -24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
 
 export default function MenuPage() {
   const { t } = useTranslation('common');
@@ -60,7 +48,7 @@ export default function MenuPage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="md:pb-0 pb-16">
         {/* 1. Featured — Three signature dishes, first section */}
         <section className="bg-bg-deepest pt-28 pb-16 border-b border-accent/35">
           <div className="max-w-5xl mx-auto px-6">
@@ -116,7 +104,7 @@ export default function MenuPage() {
             <img
               src={banner.default}
               alt=""
-              loading="eager"
+              loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </picture>
@@ -295,14 +283,18 @@ export default function MenuPage() {
                 viewport={{ once: true, amount: 0.15 }}
                 className="space-y-3"
               >
-                {maki.items.map((item) => (
-                  <MenuItemRow
-                    key={item.name}
-                    name={t(makiItemNames[item.name].name)}
-                    description={t(makiItemNames[item.name].desc)}
-                    formattedPrice={item.formattedPrice}
-                  />
-                ))}
+                {maki.items.map((item) => {
+                  const makiName = makiItemNames[item.name];
+                  if (!makiName) return null;
+                  return (
+                    <MenuItemRow
+                      key={item.name}
+                      name={t(makiName.name)}
+                      description={t(makiName.desc)}
+                      formattedPrice={item.formattedPrice}
+                    />
+                  );
+                })}
               </motion.ul>
             </div>
           </div>
@@ -330,14 +322,18 @@ export default function MenuPage() {
               </h2>
               <div className="w-8 border-t border-accent mb-6" />
               <ul className="space-y-3">
-                {maki.items.map((item) => (
-                  <MenuItemRow
-                    key={item.name}
-                    name={t(makiItemNames[item.name].name)}
-                    description={t(makiItemNames[item.name].desc)}
-                    formattedPrice={item.formattedPrice}
-                  />
-                ))}
+                {maki.items.map((item) => {
+                  const makiName = makiItemNames[item.name];
+                  if (!makiName) return null;
+                  return (
+                    <MenuItemRow
+                      key={item.name}
+                      name={t(makiName.name)}
+                      description={t(makiName.desc)}
+                      formattedPrice={item.formattedPrice}
+                    />
+                  );
+                })}
               </ul>
             </div>
           </div>

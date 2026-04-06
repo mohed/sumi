@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="md:pb-0 pb-16">
         <Hero />
         <OpeningHours />
         <Menu />
