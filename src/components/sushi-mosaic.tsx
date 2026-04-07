@@ -2,8 +2,8 @@ import imageManifest from '@data/image-manifest.json';
 
 const mosaicImages = [
   { avif: imageManifest.images.hero.default.avif, webp: imageManifest.images.hero.default.webp },
-  { avif: imageManifest.images.menuCards.rolls.default.avif, webp: imageManifest.images.menuCards.rolls.default.webp },
   { avif: imageManifest.images.menuBanner.default.avif, webp: imageManifest.images.menuBanner.default.webp },
+  { avif: imageManifest.images.menuCards.rolls.default.avif, webp: imageManifest.images.menuCards.rolls.default.webp },
   { avif: imageManifest.images.about.default.avif, webp: imageManifest.images.about.default.webp },
   { avif: imageManifest.images.menuCards.nigiri.default.avif, webp: imageManifest.images.menuCards.nigiri.default.webp },
 ];
